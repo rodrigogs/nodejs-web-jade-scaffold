@@ -1,0 +1,46 @@
+{
+  "name": "nodejs-web-jade-scaffold",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rodrigogs/nodejs-web-jade-scaffold"
+  },
+  "keywords": [
+    "web",
+    "jade",
+    "scaffold",
+    "express",
+    "kickstart",
+    "simple"
+  ],
+  "author": {
+    "name": "Rodrigo Gomes da Silva",
+    "email": "rodrigo.smscom@gmail.com",
+    "web": "https://github.com/rodrigogs"
+  },
+  "license": "BSD-2-Clause",
+  "engines": {
+    "node": ">=4.2.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "flash": "^1.1.0",
+    "helmet": "^1.0.1",
+    "jade": "^1.11.0",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.3.3",
+    "morgan": "^1.6.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "serve-favicon": "^2.3.0",
+    "winston": "^2.1.1"
+  }
+}

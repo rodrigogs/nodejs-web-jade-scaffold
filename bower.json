@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-web-jade-scaffold",
+  "description": "",
+  "main": "main.js",
+  "authors": [
+    "Rodrigo Gomes da Silva <rodrigo.smscom@gmail.com>"
+  ],
+  "license": "BSD-2-Clause",
+  "keywords": [
+    "web",
+    "jade",
+    "scaffold",
+    "express",
+    "kickstart",
+    "simple"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

@@ -1,0 +1,34 @@
+extends ../layouts/main
+
+append stylesheets
+
+append javascripts
+
+block content
+    .site-wrapper
+        .site-wrapper-inner
+            .cover-container
+                .masthead.clearfix
+                    .inner
+                        h3.masthead-brand Login
+                        nav
+                            ul.nav.masthead-nav
+                                li.active
+                                    a(href='/') Landing Page
+
+                .inner.cover
+                    include ../includes/messages
+                    
+                    form.form.col-md-12.center-block(method='post')
+                        .form-group
+                            input.form-control.input-lg(type='text' placeholder='User Name' name='username')
+                        .form-group
+                            input.form-control.input-lg(type='password' placeholder='Password' name='password')
+                        .form-group
+                            button.btn.btn-success.btn-lg.btn-block Sign In
+                            span.pull-right
+                                a(href='/register') Register
+
+                .mastfoot
+                    .inner
+                        include ../includes/footer

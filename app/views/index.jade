@@ -1,0 +1,32 @@
+extends layouts/main
+
+append stylesheets
+
+append javascripts
+
+block content
+    .site-wrapper
+        .site-wrapper-inner
+            .cover-container
+                .masthead.clearfix
+                    .inner
+                        h3.masthead-brand Landing #{user ? '| ' + user.name : ''}
+                        nav
+                            ul.nav.masthead-nav
+                                li.active
+                                    if user
+                                        a(href='logout') Logout
+                                    else
+                                        a(href='login') Login
+                                    
+                .inner.cover
+                    include includes/messages
+
+                    h1.cover-heading Node.js Web Jade Scaffold
+                    p.lead Web application performing Node.js, Express, Jade, Passport and Bootstrap
+                    p.lead
+                        img.img-responsive(src='https://nodejs.org/static/images/logo.svg')
+
+                .mastfoot
+                    .inner
+                        include includes/footer
