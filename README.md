@@ -6,7 +6,7 @@
 
 > bower install
 
-[Install MongoDB](https://www.mongodb.org/downloads)
+> [Install MongoDB](https://www.mongodb.org/downloads)
 
 > mongod
 
