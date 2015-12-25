@@ -18,6 +18,7 @@
 * Passport strategies
 * User/Role management
 * Tests
+* Documentation
 
 ## License
 
