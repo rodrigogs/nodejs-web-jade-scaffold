@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "node node_modules/nodemon/bin/nodemon.js ./bin/www",
     "test": "test"
   },
   "repository": {
@@ -38,6 +38,7 @@
     "method-override": "^2.3.5",
     "mongoose": "^4.3.3",
     "morgan": "^1.6.1",
+    "nodemon": "^1.8.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "serve-favicon": "^2.3.0",
