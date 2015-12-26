@@ -2,7 +2,7 @@
 
 > npm install
 
-> npm install bower nodemon -g
+> npm install bower -g
 
 > bower install
 
