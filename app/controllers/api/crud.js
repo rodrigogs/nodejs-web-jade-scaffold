@@ -54,12 +54,7 @@ module.exports = class Crud {
                 return res.status(404).json({ success: false, message: 'Not found' });
             }
 
-            let update = {};
-            if (req.body.name) update['name'] = req.body.name;
-            if (req.body.email) update['email'] = req.body.email;
-            if (req.body.password) update['password'] = req.body.password;
-
-            _model.update(query, { $set: update }, err => {
+            _model.update(query, { $set: req.body }, err => {
                 if (err) {
                     return res.status(500).json({ success: false, message: err });
                 }
