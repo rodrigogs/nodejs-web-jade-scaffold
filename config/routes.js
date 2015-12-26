@@ -19,6 +19,12 @@ module.exports = (app) => {
     app.use(auth);
     app.use(index);
 
+    /*------------------- Routes API -------------------*/
+
+    const user = require('../app/routes/api/user');
+
+    app.use('/api/user', user);
+
     /*--------------- Error Handler ----------------*/
 
     app.use((req, res, next) => {
@@ -31,8 +37,8 @@ module.exports = (app) => {
         logger.error(err);
 
         /**
-         * Remove Error's `stack` property. We don't want 
-         * users to see this at the production env 
+         * Remove Error's `stack` property. We don't want
+         * users to see this at the production env
          */
         if (req.app.get('env') !== 'development') {
             delete err.stack;
