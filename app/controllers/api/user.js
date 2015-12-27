@@ -1,7 +1,7 @@
 'use strict';
 
 const Model = require('../../models/user');
-const Crud = require('./crud');
+const Crud = require('web-crud');
 
 Crud.model(Model);
 
