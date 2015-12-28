@@ -21,16 +21,16 @@ module.exports = {
             }
 
             if (message) {
-                req.flash('warning', message);
+                req.flash('warning', req.__(message));
                 return res.render('auth/register', {user: user});
             }
 
             if (!user) {
-                req.flash('warning', 'Error creating user');
+                req.flash('warning', req.__('user.error-creating'));
                 return res.render('auth/register', {user: user});
             }
 
-            req.flash('success', 'User created');
+            req.flash('success', req.__('user.created'));
             res.redirect('/');
         });
     }

@@ -30,10 +30,12 @@
   },
   "dependencies": {
     "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.0",
     "express": "^4.13.3",
     "express-session": "^1.12.1",
     "flash": "^1.1.0",
     "helmet": "^1.0.1",
+    "i18n": "^0.5.0",
     "jade": "^1.11.0",
     "method-override": "^2.3.5",
     "mongoose": "^4.3.3",

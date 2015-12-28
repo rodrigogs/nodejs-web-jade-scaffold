@@ -10,11 +10,14 @@ const flash = require('flash');
 const session = require('express-session');
 const methodOverride = require('method-override');
 const passport = require('passport');
+const i18n = require('i18n');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
 app.use(helmet());
 app.use(logger('dev'));
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({secret: 'whatever', resave: false, saveUninitialized: true}));
@@ -22,6 +25,13 @@ app.use(flash());
 app.use(methodOverride('_method'));
 app.use(passport.initialize());
 app.use(passport.session());
+
+// i18n config: https://github.com/mashpie/i18n-node#list-of-configuration-options
+i18n.configure({
+    directory: path.join(__dirname, 'locales'),
+    locales:['en', 'pt-br', 'pt']
+});
+app.use(i18n.init);
 
 // Static resources
 app.use(favicon(path.join(__dirname, 'favicon.ico')));

@@ -6,6 +6,6 @@ module.exports = {
      * 
      */
     getMessage: () => {
-        return 'It\'s working!';
+        return 'main.cover-description';
     }
 };

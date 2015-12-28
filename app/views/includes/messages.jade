@@ -1,3 +1,3 @@
-while message = flash.shift()
-    div(class='alert alert-#{message.type}' role='alert')
-        p= message.message
+while _msg = flash.shift()
+    div(class='alert alert-#{_msg.type}' role='alert')
+        p= _msg.message

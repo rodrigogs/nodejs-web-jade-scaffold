@@ -43,7 +43,7 @@ module.exports = (app) => {
                 }
 
                 if (!user) {
-                    req.flash('danger', 'Invalid user name or password');
+                    req.flash('danger', req.__('auth.failed'));
                     return res.redirect('/login');
                 }
 

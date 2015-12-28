@@ -5,7 +5,7 @@ const logger = require('winston');
 module.exports = (app) => {
 
     app.use((req, res, next) => {
-        // remove express http headers
+        // Remove express http headers
         res.removeHeader('X-Powered-By');
         res.locals.user = req.user;
         next();

@@ -14,7 +14,6 @@
 
 ## TODO
 
-* i18n
 * Passport strategies
 * User/Role management
 * Tests

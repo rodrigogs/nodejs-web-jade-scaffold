@@ -14,7 +14,7 @@ module.exports = {
             }
 
             if (usr) {
-                return callback(null, 'User exists');
+                return callback(null, 'user.exists');
             }
 
             user = new UserSchema(user);

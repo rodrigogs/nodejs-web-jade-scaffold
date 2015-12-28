@@ -1,0 +1,19 @@
+{
+    "title": "Node.js Web Jade Scaffold",
+    "main.cover-title": "Node.js Web Jade Scaffold",
+    "main.cover-description": "Web application performing Node.js, Express, Jade, Passport, MongoDB and Bootstrap",
+    "landing-page": "Landing Page",
+    "login": "Login",
+    "logout": "Logout",
+    "sign-in": "Sign In",
+    "register": "Register",
+    "error": "Error",
+    "auth.failed": "Invalid user name or password",
+    "user.name": "Name",
+    "user.user_name": "User name",
+    "user.last_name": "Last name",
+    "user.password": "Password",
+    "user.created": "User created",
+    "user.exists": "User exists",
+    "user.error-creating": "Error creating user"
+}
