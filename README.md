@@ -1,5 +1,8 @@
 # Node.js Web Jade Scaffold
 
+[![Build Status](https://travis-ci.org/rodrigogs/nodejs-web-jade-scaffold.svg?branch=master)](https://travis-ci.org/rodrigogs/nodejs-web-jade-scaffold)
+[![Code Climate](https://codeclimate.com/github/rodrigogs/nodejs-web-jade-scaffold/badges/gpa.svg)](https://codeclimate.com/github/rodrigogs/nodejs-web-jade-scaffold)
+
 ## Structure
 ```
 project
@@ -84,7 +87,7 @@ project
     - IP
         - export IP="192.168.0.1"
             - Default is 'localhost'
-    - IP
+    - PORT
         - export PORT="8080"
             - Default is '3000'
     - SESSION_SECRET
@@ -101,17 +104,19 @@ project
 
 ## Launching
 
+### First start MongoDB if you don't have a running instance
+
 > mongod
 
-### Development
+#### Development
 
 > npm start
 
-### Production
+#### Production
 
 > node bin/www
 
-### Test
+#### Test
 
 > npm test
 
@@ -119,8 +124,7 @@ project
 
 * Passport strategies
 * User/Role management
-* Tests
-* Documentation
+* More tests
 
 ## License
 
