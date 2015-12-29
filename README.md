@@ -120,6 +120,8 @@ project
 
 > npm test
 
+Result should be: [Running Example](http://nodejs-web-jade-scaffold.herokuapp.com/)
+
 ## TODO
 
 * Passport strategies
