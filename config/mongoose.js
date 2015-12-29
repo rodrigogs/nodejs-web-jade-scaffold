@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-const CONN_STR = process.env.EXAMPLE_DB || 'mongodb://localhost:27017/example';
+const CONN_STR = process.env.DATABASE_URL;
 
 mongoose.connect(CONN_STR);
 
@@ -12,6 +12,7 @@ mongoose.connection.on('connected', () => {
 
 mongoose.connection.on('error', err => {
     console.log('Mongoose default connection error: ' + err);
+    process.exit(1);
 });
 
 mongoose.connection.on('disconnected', () => {

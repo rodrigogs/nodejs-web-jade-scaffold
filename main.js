@@ -1,5 +1,6 @@
 'use strict';
 
+const CONFIG = require('./config/config.json');
 const path = require('path');
 const express = require('express');
 const helmet = require('helmet');
@@ -16,11 +17,11 @@ const cookieParser = require('cookie-parser');
 const app = express();
 
 app.use(helmet());
-app.use(logger('dev'));
+app.use(logger(process.env.HTTP_LOG_CONF));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(session({secret: 'whatever', resave: false, saveUninitialized: true}));
+app.use(session({secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: true}));
 app.use(flash());
 app.use(methodOverride('_method'));
 app.use(passport.initialize());
@@ -29,8 +30,9 @@ app.use(passport.session());
 // i18n config: https://github.com/mashpie/i18n-node#list-of-configuration-options
 i18n.configure({
     directory: path.join(__dirname, 'locales'),
-    locales:['en', 'pt-br', 'pt']
+    locales: CONFIG.LOCALES
 });
+
 app.use(i18n.init);
 
 // Static resources
@@ -42,7 +44,6 @@ app.set('views', path.join(__dirname, 'app/views'));
 app.set('view engine', 'jade');
 
 // Config
-require('./config/passport')(app);
 require('./config/routes')(app);
 require('./config/mongoose');
 

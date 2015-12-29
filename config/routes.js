@@ -1,10 +1,11 @@
 'use strict';
 
+const router = require('express').Router();
 const logger = require('winston');
 
 module.exports = (app) => {
 
-    app.use((req, res, next) => {
+    router.use((req, res, next) => {
         // Remove express http headers
         res.removeHeader('X-Powered-By');
         res.locals.user = req.user;
@@ -12,28 +13,30 @@ module.exports = (app) => {
     });
 
     /*------------------- Routes -------------------*/
-
+    
+    const passport = require('./passport');
     const auth = require('../app/routes/auth');
     const index = require('../app/routes/index');
 
-    app.use(auth);
-    app.use(index);
+    router.use(passport);
+    router.use(auth);
+    router.use(index);
 
-    /*------------------- Routes API -------------------*/
+    /*----------------- Routes API -----------------*/
 
     const user = require('../app/routes/api/user');
 
-    app.use('/api/user', user);
+    router.use('/api/user', user);
 
     /*--------------- Error Handler ----------------*/
 
-    app.use((req, res, next) => {
+    router.use((req, res, next) => {
         let err = new Error('Not Found');
         err.statusCode = 404;
         next(err);
     });
 
-    app.use((err, req, res, next) => {
+    router.use((err, req, res, next) => {
         logger.error(err);
 
         /**
@@ -46,4 +49,6 @@ module.exports = (app) => {
 
         res.status(err.statusCode || 500).render('error', {error: err});
     });
+
+    app.use(router);
 };

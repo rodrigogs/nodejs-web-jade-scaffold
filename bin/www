@@ -7,8 +7,6 @@
 const app = require('../main');
 const http = require('http');
 
-app.set('env', 'development');
-
 /**
  * Normalize a port into a number, string, or false.
  */
