@@ -122,8 +122,7 @@ project
 
 * Passport strategies
 * User/Role management
-* Tests
-* Documentation
+* More tests
 
 ## License
 
