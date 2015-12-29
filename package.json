@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "node node_modules/nodemon/bin/nodemon.js ./bin/www",
-    "test": "test"
+    "test": "ava tests.js"
   },
   "repository": {
     "type": "git",
@@ -46,5 +46,9 @@
     "serve-favicon": "^2.3.0",
     "web-crud": "0.0.2",
     "winston": "^2.1.1"
+  },
+  "devDependencies": {
+    "ava": "^0.9.0",
+    "request": "^2.67.0"
   }
 }

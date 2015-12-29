@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - 4.2.3
+  - 4.2.4
+  - 5.3.0
+before_install:
+  - export SESSION_SECRET=mysecret
+  - export DATABASE_URL=mongodb://localhost:27017/example
+  - export HTTP_LOG_CONF=dev
+install:
+  - npm install
+script:
+  - npm test
