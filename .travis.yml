@@ -5,7 +5,7 @@ node_js:
   - 5.3.0
 before_install:
   - export SESSION_SECRET=mysecret
-  - export DATABASE_URL=mongodb://localhost:27017/example
+  - export DATABASE_URL=mongodb://rodrigogs:84060989@ds035995.mongolab.com:35995/nodejs-web-jade-scaffold
   - export HTTP_LOG_CONF=dev
 install:
   - npm install
