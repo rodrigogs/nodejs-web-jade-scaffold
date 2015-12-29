@@ -104,17 +104,19 @@ project
 
 ## Launching
 
+### First start MongoDB if you don't have a running instance
+
 > mongod
 
-### Development
+#### Development
 
 > npm start
 
-### Production
+#### Production
 
 > node bin/www
 
-### Test
+#### Test
 
 > npm test
 
