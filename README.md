@@ -60,6 +60,7 @@ project
 │   └── pt.json
 |
 ├── main.js <-- Main project file
+├── tests.js < -- Tests file
 ├── bower.json
 ├── favicon.ico <-- Website favicon
 └── package.json
