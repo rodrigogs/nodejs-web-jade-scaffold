@@ -87,7 +87,7 @@ project
     - IP
         - export IP="192.168.0.1"
             - Default is 'localhost'
-    - IP
+    - PORT
         - export PORT="8080"
             - Default is '3000'
     - SESSION_SECRET
