@@ -46,5 +46,6 @@ app.set('view engine', 'jade');
 // Config
 require('./config/routes')(app);
 require('./config/mongoose');
+require('./config/passport');
 
 module.exports = app;

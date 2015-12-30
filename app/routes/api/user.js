@@ -5,13 +5,11 @@ const router = express.Router();
 
 const UserController = require('../../controllers/api/user');
 
-router
-    .route('/')
+router.route('/')
     .get(UserController.list)
     .post(UserController.create)
 
-router
-    .route('/:id')
+router.route('/:id')
     .get(UserController.findById)
     .put(UserController.update)
     .delete(UserController.delete)

@@ -14,12 +14,12 @@ module.exports = (app) => {
 
     /*------------------- Routes -------------------*/
     
-    const passport = require('./passport');
     const auth = require('../app/routes/auth');
+    const register = require('../app/routes/register');
     const index = require('../app/routes/index');
 
-    router.use(passport);
     router.use(auth);
+    router.use(register);
     router.use(index);
 
     /*----------------- Routes API -----------------*/

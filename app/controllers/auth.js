@@ -8,30 +8,38 @@ module.exports = {
      * Index action
      */
     index: (req, res, next) => {
-        res.render('auth/register');
+        res.render('auth/login');
     },
 
     /**
-     * Register action
+     * Login action
      */
-    register: (req, res, next) => {
-        AuthService.register(req.body, (err, message, user) => {
+    login: (req, res, next) => {
+        AuthService.authenticate(req, (err, user) => {
             if (err) {
                 return next(err);
             }
 
-            if (message) {
-                req.flash('warning', req.__(message));
-                return res.render('auth/register', {user: user});
-            }
-
             if (!user) {
-                req.flash('warning', req.__('user.error-creating'));
-                return res.render('auth/register', {user: user});
+                req.flash('danger', req.__('auth.failed'));
+                return res.redirect('/login');
             }
 
-            req.flash('success', req.__('user.created'));
-            res.redirect('/');
+            req.logIn(user, (err) => {
+                if (err) {
+                    return next(err);
+                }
+
+                return res.redirect('/');
+            });
         });
+    },
+
+    /**
+     * Logout action
+     */
+    logout: (req, res, next) => {
+        req.logout();
+        res.redirect('/');
     }
 };
