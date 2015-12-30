@@ -10,17 +10,18 @@ const UserSchema = new Schema({
         required: true
     },
     last_name: {
-        type: String,
-        required: true
+        type: String
     },
     user_name: {
         type: String,
-        required: true,
         index: { unique: true }
     },
     password: {
+        type: String
+    },
+    facebook_id: {
         type: String,
-        required: true
+        index: { unique: true }
     },
     creation_date: {
         type: Date,

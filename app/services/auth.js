@@ -7,7 +7,12 @@ module.exports = {
     /**
      * Authenticate
      */
-    authenticate: (req, callback) => {
-        passport.authenticate('local', callback)(req);
+    authenticate: (type, args, callback) => {
+        if (type === 'local') {
+            return passport.authenticate('local', callback);
+        }
+        if (type === 'facebook') {
+            return passport.authenticate('facebook', args);
+        }
     }
 };

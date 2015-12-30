@@ -16,8 +16,10 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 
+app.locals.AUTH_CONFIG = CONFIG.AUTH;
+
 app.use(helmet());
-app.use(logger(process.env.HTTP_LOG_CONF));
+app.use(logger(CONFIG.HTTP_LOG_CONFIG));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));

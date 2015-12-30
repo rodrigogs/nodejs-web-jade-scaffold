@@ -1,7 +1,19 @@
 {
+    "HTTP_LOG_CONFIG": "dev",
     "LOCALES": [
         "en",
         "pt",
         "pt-br"
-    ]
+    ],
+    "AUTH": {
+        "ENABLED": true,
+        "LOCAL": {
+            "ENABLED": true
+        },
+        "FACEBOOK": {
+            "ENABLED": false,
+            "APP_ID": "",
+            "APP_SECRET": ""
+        }
+    }
 }

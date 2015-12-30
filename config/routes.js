@@ -1,5 +1,6 @@
 'use strict';
 
+const CONFIG = require('./config.json');
 const router = require('express').Router();
 const logger = require('winston');
 
@@ -13,13 +14,16 @@ module.exports = (app) => {
     });
 
     /*------------------- Routes -------------------*/
-    
+
     const auth = require('../app/routes/auth');
     const register = require('../app/routes/register');
     const index = require('../app/routes/index');
 
-    router.use(auth);
-    router.use(register);
+    if (CONFIG.AUTH.ENABLED) {
+        router.use(auth);
+        router.use(register);
+    }
+
     router.use(index);
 
     /*----------------- Routes API -----------------*/

@@ -11,14 +11,15 @@ block content
                 .masthead.clearfix
                     .inner
                         h3.masthead-brand #{__('landing-page')} #{user ? '| ' + user.name : ''}
-                        nav
-                            ul.nav.masthead-nav
-                                li.active
-                                    if user
-                                        a(href='logout') #{__('logout')}
-                                    else
-                                        a(href='login') #{__('login')}
-                                    
+                        if AUTH_CONFIG.ENABLED
+                            nav
+                                ul.nav.masthead-nav
+                                    li.active
+                                        if user
+                                            a(href='/auth/logout') #{__('logout')}
+                                        else
+                                            a(href='/auth/login') #{__('login')}
+
                 .inner.cover
                     include includes/messages
                     

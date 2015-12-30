@@ -15,14 +15,14 @@ module.exports = {
      * Login action
      */
     login: (req, res, next) => {
-        AuthService.authenticate(req, (err, user) => {
+        AuthService.authenticate('local', null, (err, user) => {
             if (err) {
                 return next(err);
             }
 
             if (!user) {
                 req.flash('danger', req.__('auth.failed'));
-                return res.redirect('/login');
+                return res.redirect('auth/login');
             }
 
             req.logIn(user, (err) => {
@@ -32,7 +32,24 @@ module.exports = {
 
                 return res.redirect('/');
             });
-        });
+        })(req, res, next);
+    },
+
+    /**
+     * Facebook action
+     */
+    facebook: (req, res, next) => {
+        AuthService.authenticate('facebook')(req, res, next);
+    },
+
+    /**
+     * FacebookCallback action
+     */
+    facebookCallback: (req, res, next) => {
+        AuthService.authenticate('facebook', {
+            successRedirect: '/',
+            failureRedirect: '/auth/login'
+        })(req, res, next);
     },
 
     /**

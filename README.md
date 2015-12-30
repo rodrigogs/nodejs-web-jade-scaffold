@@ -88,13 +88,16 @@ project
         - export SESSION_SECRET="mysecret"
     - DATABASE_URL
         - export DATABASE_URL="mongodb://localhost:27017/example"
-    - HTTP_LOG_CONF
-        - export HTTP_LOG_CONF="dev"
-            - See: https://github.com/expressjs/morgan#predefined-formats
 
 * Project configuration
-    - Project> config> config.json
+    - Project/config/config.json
         - LOCALES: Reference your locale files in the locale folder. Only the locales defined here will be use by the app.
+        - HTTP_LOG_CONFIG: See https://github.com/expressjs/morgan#predefined-formats
+        - AUTH.ENABLED: Enable or disable authentication.
+        - AUTH.LOCAL.ENABLED: Enable or disable local authentication.
+        - AUTH.FACEBOOK.ENABLED: Enable or disable Facebook authentication.
+        - AUTH.FACEBOOK.APP_ID: See https://developers.facebook.com/docs/apps/register#app-id
+        - AUTH.FACEBOOK.APP_SECRET: See https://developers.facebook.com/docs/apps/register#app-secret
 
 ## Launching
 

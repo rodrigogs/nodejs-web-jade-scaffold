@@ -24,5 +24,6 @@
     "tests"
   ],
   "dependencies": {
+    "bootstrap-social": "~4.11.0"
   }
 }

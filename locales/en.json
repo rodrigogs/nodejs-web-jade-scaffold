@@ -6,6 +6,7 @@
     "login": "Login",
     "logout": "Logout",
     "sign-in": "Sign In",
+    "facebook.sign-in": "Sign In with Facebook",
     "register": "Register",
     "error": "Error",
     "auth.failed": "Invalid user name or password",
