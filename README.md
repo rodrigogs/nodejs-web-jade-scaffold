@@ -79,25 +79,25 @@ project
 
 #### Environment variables
 * IP
-    > export IP="192.168.0.1"
+    - export IP="192.168.0.1"
 * PORT
-    > export PORT="8080"
+    - export PORT="8080"
 * SESSION_SECRET
-    > export SESSION_SECRET="mysecret"
+    - export SESSION_SECRET="mysecret"
 * DATABASE_URL
-    > export DATABASE_URL="mongodb://localhost:27017/example"
+    - export DATABASE_URL="mongodb://localhost:27017/example"
 * FACEBOOK_APP_ID: See https://developers.facebook.com/docs/apps/register#app-id
-    > export FACEBOOK_APP_ID="myfacebookid"
+    - export FACEBOOK_APP_ID="myfacebookid"
 * FACEBOOK_APP_SECRET: See https://developers.facebook.com/docs/apps/register#app-secret
-    > export FACEBOOK_APP_SECRET="myfacebooksecret"
+    - export FACEBOOK_APP_SECRET="myfacebooksecret"
 * TWITTER_CONSUMER_KEY
-    > export TWITTER_CONSUMER_KEY="mytwitterconsumerkey"
+    - export TWITTER_CONSUMER_KEY="mytwitterconsumerkey"
 * TWITTER_CONSUMER_SECRET
-    > export TWITTER_CONSUMER_SECRET="mytwitterconsumersecret"
+    - export TWITTER_CONSUMER_SECRET="mytwitterconsumersecret"
 * GITHUB_CLIENT_ID
-    > export GITHUB_CLIENT_ID="mygithubclientid"
+    - export GITHUB_CLIENT_ID="mygithubclientid"
 * GITHUB_CLIENT_SECRET
-    > exports GITHUB_CLIENT_SECRET="mygithubclientsecret"
+    - exports GITHUB_CLIENT_SECRET="mygithubclientsecret"
 
 #### Project configuration
 * Project/config/config.json
