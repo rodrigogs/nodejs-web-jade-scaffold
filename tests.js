@@ -43,21 +43,21 @@ test.cb('test / url', t => {
 });
 
 test.cb('test /login url', t => {
-    const url = `${baseUrl}/login`;
+    const url = `${baseUrl}/auth/login`;
     getMethod(t, url);
 });
 
 test.cb('test /logout url', t => {
-    const url = `${baseUrl}/logout`;
+    const url = `${baseUrl}/auth/logout`;
     getMethod(t, url);
 });
 
 test.cb('test /logout url', t => {
-    const url = `${baseUrl}/register`;
+    const url = `${baseUrl}/auth/register`;
     getMethod(t, url);
 });
 
 test.cb('test /logout url', t => {
-    const url = `${baseUrl}/register`;
+    const url = `${baseUrl}/auth/register`;
     postMethod(t, url, {name: 'test', last_name: 'last name', user_name: 'username', password: '123'});
 });
