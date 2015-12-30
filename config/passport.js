@@ -5,6 +5,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
+const GitHubStrategy = require('passport-github').Strategy;
 const UserSchema = require('../app/models/user');
 const CryptUtils = require('../app/utils/crypt');
 
@@ -62,8 +63,6 @@ if (CONFIG.AUTH.FACEBOOK.ENABLED) {
                     user_name: profile._json.email
                 });
 
-                console.log(user);
-
                 user.save(user, (err, user) => {
                     if (err) {
                         return done(err);
@@ -92,6 +91,40 @@ if (CONFIG.AUTH.TWITTER.ENABLED) {
 
                 user = new UserSchema({
                     twitter_id: profile.id,
+                    name: profile.displayName.split(' ')[0],
+                    last_name: profile.displayName.split(' ').slice(1).join(' '),
+                    user_name: profile.username
+                });
+
+                user.save(user, (err, user) => {
+                    if (err) {
+                        return done(err);
+                    }
+                    done(null, user);
+                });
+            });
+        }
+    ));
+}
+
+if (CONFIG.AUTH.GITHUB.ENABLED) {
+    passport.use(new GitHubStrategy({
+            clientID: process.env.GITHUB_CLIENT_ID,
+            clientSecret: process.env.GITHUB_CLIENT_SECRET,
+            callbackURL: '/auth/github/callback'
+        }, (accessToken, refreshToken, profile, done) => {
+
+            UserSchema.findOne({github_id: profile.id}, (err, user) => {
+                if (err) {
+                    return done(err);
+                }
+
+                if (user) {
+                    return done(null, user);
+                }
+
+                user = new UserSchema({
+                    github_id: profile.id,
                     name: profile.displayName.split(' ')[0],
                     last_name: profile.displayName.split(' ').slice(1).join(' '),
                     user_name: profile.username

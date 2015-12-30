@@ -45,6 +45,12 @@ block content
                                     span.fa.fa-twitter
                                     | #{__('twitter.sign-in')}
 
+                        if AUTH_CONFIG.GITHUB.ENABLED
+                            .form-group
+                                a.btn.btn-block.btn-social.btn-github(href='/auth/github')
+                                    span.fa.fa-github
+                                    | #{__('github.sign-in')}
+
                 .mastfoot
                     .inner
                         include ../includes/footer

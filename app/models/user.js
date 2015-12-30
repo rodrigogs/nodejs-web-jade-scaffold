@@ -14,12 +14,21 @@ const UserSchema = new Schema({
     },
     user_name: {
         type: String,
-        index: { unique: true }
+        index: { unique: true },
+        required: true
     },
     password: {
         type: String
     },
     facebook_id: {
+        type: String,
+        index: { unique: true }
+    },
+    twitter_id: {
+        type: String,
+        index: { unique: true }
+    },
+    github_id: {
         type: String,
         index: { unique: true }
     },

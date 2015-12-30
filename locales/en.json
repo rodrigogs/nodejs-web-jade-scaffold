@@ -8,6 +8,8 @@
     "sign-in": "Sign In",
     "facebook.sign-in": "Sign In with Facebook",
     "twitter.sign-in": "Sign In with Twitter",
+    "google.sign-in": "Sign In with Google",
+    "github.sign-in": "Sign In with GitHub",
     "register": "Register",
     "error": "Error",
     "auth.failed": "Invalid user name or password",

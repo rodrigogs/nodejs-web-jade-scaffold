@@ -18,6 +18,10 @@ router
     .get('/auth/twitter', AuthController.twitter)
     .get('/auth/twitter/callback', AuthController.twitterCallback);
 
+router
+    .get('/auth/github', AuthController.github)
+    .get('/auth/github/callback', AuthController.githubCallback);
+
 router.route('/auth/logout')
     .get(AuthController.logout);
 

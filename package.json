@@ -42,6 +42,8 @@
     "morgan": "^1.6.1",
     "nodemon": "^1.8.1",
     "passport": "^0.3.2",
+    "passport-github": "^1.0.0",
+    "passport-google": "^0.3.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.3",
     "serve-favicon": "^2.3.0",

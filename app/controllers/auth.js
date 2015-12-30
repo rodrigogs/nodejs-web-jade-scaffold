@@ -69,6 +69,23 @@ module.exports = {
             failureRedirect: '/auth/login'
         })(req, res, next);
     },
+    
+    /**
+     * Github action
+     */
+    github: (req, res, next) => {
+        AuthService.authenticate('github')(req, res, next);
+    },
+
+    /**
+     * GithubCallback action
+     */
+    githubCallback: (req, res, next) => {
+        AuthService.authenticate('github', {
+            successRedirect: '/',
+            failureRedirect: '/auth/login'
+        })(req, res, next);
+    },
 
     /**
      * Logout action

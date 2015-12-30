@@ -94,6 +94,10 @@ project
     > export TWITTER_CONSUMER_KEY="mytwitterconsumerkey"
 * TWITTER_CONSUMER_SECRET
     > export TWITTER_CONSUMER_SECRET="mytwitterconsumersecret"
+* GITHUB_CLIENT_ID
+    > export GITHUB_CLIENT_ID="mygithubclientid"
+* GITHUB_CLIENT_SECRET
+    > exports GITHUB_CLIENT_SECRET="mygithubclientsecret"
 
 #### Project configuration
 * Project/config/config.json
