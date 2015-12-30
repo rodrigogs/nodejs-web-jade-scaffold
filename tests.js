@@ -53,11 +53,11 @@ test.cb('test /logout url', t => {
 });
 
 test.cb('test /logout url', t => {
-    const url = `${baseUrl}/auth/register`;
+    const url = `${baseUrl}/register`;
     getMethod(t, url);
 });
 
 test.cb('test /logout url', t => {
-    const url = `${baseUrl}/auth/register`;
+    const url = `${baseUrl}/register`;
     postMethod(t, url, {name: 'test', last_name: 'last name', user_name: 'username', password: '123'});
 });
