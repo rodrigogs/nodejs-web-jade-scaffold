@@ -9,60 +9,54 @@ project
 ├── app
 │   ├── controllers
 │   │   ├── api
-│   │   │   └── user.js
-│   │   ├── auth.js
-│   │   └── index.js
+│   │   │   └── example.js
+│   │   └── example.js
 |   |
 │   ├── models
-│   │   └── user.js
+│   │   └── example.js
 |   |
 │   ├── public
 │   │   ├── javascript
-│   │   │   └── application.js
+│   │   │   └── example.js
 │   │   └── stylesheets
-│   │       ├── cover.css
-│   │       └── style.css
+│   │       └── example.css
 |   |
 │   ├── routes
 │   │   ├── api
-│   │   │   └── user.js
-│   │   ├── auth.js
-│   │   └── index.js
+│   │   │   └── example.js
+│   │   └── example.js
 |   |
 │   ├── services
-│   │   ├── auth.js
-│   │   └── index.js
+│   │   └── example.js
 |   |
 │   ├── utils
-│   │   └── crypt.js
+│   │   └── example.js
 |   |
 │   └── views
-│       ├── auth
-│       │   ├── login.jade
-│       │   └── register.jade
-│       ├── error.jade
+│       ├── error.jade <-- Error template
 │       ├── includes
-│       │   ├── footer.jade
-│       │   └── messages.jade
-│       ├── index.jade
-│       └── layouts
-│           ├── default.jade
-│           └── main.jade
+│       │   ├── footer.jade <-- Footer template
+│       │   └── messages.jade <-- Flash messages template
+│       ├── layouts
+│       |   ├── default.jade <-- Default layout
+│       |   └── main.jade <-- Extended layout
+│       └── index.jade <-- Index template
+|
 ├── bin
 │   └── www <-- HTTP server runner
 |
 ├── config
-│   ├── config.json <-- General configuration file
-│   ├── mongoose.js
-│   ├── passport.js
-│   └── routes.js
+│   ├── config.json <-- General configurations file
+│   ├── mongoose.js <-- Mongoose connection configuration
+│   ├── passport.js <-- Passport routes and strategies
+│   └── routes.js <-- General routes
 |
 ├── locales <-- Locale files should be referenced in config.json file
 │   ├── en.json
 │   ├── pt-br.json
 │   └── pt.json
 |
-├── main.js <-- Main project file
+├── main.js <-- Main app file
 ├── tests.js < -- Tests file
 ├── bower.json
 ├── favicon.ico <-- Website favicon
@@ -104,7 +98,7 @@ project
 
 ## Launching
 
-### First start MongoDB if you don't have a running instance
+First start MongoDB if you don't have a running instance
 
 > mongod
 
@@ -120,7 +114,7 @@ project
 
 > npm test
 
-Result should be: [Running Example](http://nodejs-web-jade-scaffold.herokuapp.com/)
+[Running Example](http://nodejs-web-jade-scaffold.herokuapp.com/)
 
 ## TODO
 
