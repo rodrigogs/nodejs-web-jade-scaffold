@@ -1,1 +1,1 @@
-web: node ./bin/www
+web: bower install && node ./bin/www
