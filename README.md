@@ -109,6 +109,7 @@ project
     - AUTH.FACEBOOK.PROFILE_FIELDS: Facebook profile fields wanted.
     - AUTH.FACEBOOK.OPTIONS: Facebook api options.
     - AUTH.TWITTER.ENABLED: Enable or disable Twitter authentication.
+    - AUTH.GITHUB.ENABLED: Enable or disable GitHub authentication.
 
 ## Launching
 
