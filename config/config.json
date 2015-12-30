@@ -11,9 +11,25 @@
             "ENABLED": true
         },
         "FACEBOOK": {
-            "ENABLED": false,
-            "APP_ID": "",
-            "APP_SECRET": ""
+            "ENABLED": true,
+            "PROFILE_FIELDS": [
+                "id",
+                "first_name",
+                "last_name",
+                "email"
+            ],
+            "OPTIONS": {
+                "display": "touch",
+                "scope": [
+                    "public_profile",
+                    "email"
+                ],
+                "authorizationURL": "https://www.facebook.com/v2.4/dialog/oauth",
+                "profileURL": "https://graph.facebook.com/v2.4/me"
+            }
+        },
+        "TWITTER": {
+            "ENABLED": true
         }
     }
 }

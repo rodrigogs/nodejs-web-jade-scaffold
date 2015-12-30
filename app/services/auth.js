@@ -14,5 +14,8 @@ module.exports = {
         if (type === 'facebook') {
             return passport.authenticate('facebook', args);
         }
+        if (type === 'twitter') {
+            return passport.authenticate('twitter', args);
+        }
     }
 };

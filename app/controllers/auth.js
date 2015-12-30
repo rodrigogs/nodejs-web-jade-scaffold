@@ -1,5 +1,6 @@
 'use strict';
 
+const CONFIG = require('../../config/config.json');
 const AuthService = require('../services/auth');
 
 module.exports = {
@@ -22,7 +23,7 @@ module.exports = {
 
             if (!user) {
                 req.flash('danger', req.__('auth.failed'));
-                return res.redirect('auth/login');
+                return res.redirect('/auth/login');
             }
 
             req.logIn(user, (err) => {
@@ -39,7 +40,7 @@ module.exports = {
      * Facebook action
      */
     facebook: (req, res, next) => {
-        AuthService.authenticate('facebook')(req, res, next);
+        AuthService.authenticate('facebook', CONFIG.AUTH.FACEBOOK.OPTIONS)(req, res, next);
     },
 
     /**
@@ -47,6 +48,23 @@ module.exports = {
      */
     facebookCallback: (req, res, next) => {
         AuthService.authenticate('facebook', {
+            successRedirect: '/',
+            failureRedirect: '/auth/login'
+        })(req, res, next);
+    },
+
+    /**
+     * Twitter action
+     */
+    twitter: (req, res, next) => {
+        AuthService.authenticate('twitter')(req, res, next);
+    },
+
+    /**
+     * TwitterCallback action
+     */
+    twitterCallback: (req, res, next) => {
+        AuthService.authenticate('twitter', {
             successRedirect: '/',
             failureRedirect: '/auth/login'
         })(req, res, next);

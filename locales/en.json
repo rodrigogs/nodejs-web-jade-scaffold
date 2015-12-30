@@ -7,6 +7,7 @@
     "logout": "Logout",
     "sign-in": "Sign In",
     "facebook.sign-in": "Sign In with Facebook",
+    "twitter.sign-in": "Sign In with Twitter",
     "register": "Register",
     "error": "Error",
     "auth.failed": "Invalid user name or password",

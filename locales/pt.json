@@ -7,6 +7,7 @@
     "logout": "Logout",
     "sign-in": "Entrar",
     "facebook.sign-in": "Entrar com o Facebook",
+    "twitter.sign-in": "Entrar com o Twitter",
     "register": "Registrar",
     "error": "Erro",
     "auth.failed": "Nome de usuário ou senha inválido",

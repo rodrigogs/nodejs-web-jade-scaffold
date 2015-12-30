@@ -77,27 +77,34 @@ project
 
 ### Configuration
 
-* Environment variables
-    - IP
-        - export IP="192.168.0.1"
-            - Default is 'localhost'
-    - PORT
-        - export PORT="8080"
-            - Default is '3000'
-    - SESSION_SECRET
-        - export SESSION_SECRET="mysecret"
-    - DATABASE_URL
-        - export DATABASE_URL="mongodb://localhost:27017/example"
+#### Environment variables
+* IP
+    > export IP="192.168.0.1"
+* PORT
+    > export PORT="8080"
+* SESSION_SECRET
+    > export SESSION_SECRET="mysecret"
+* DATABASE_URL
+    > export DATABASE_URL="mongodb://localhost:27017/example"
+* FACEBOOK_APP_ID: See https://developers.facebook.com/docs/apps/register#app-id
+    > export FACEBOOK_APP_ID="myfacebookid"
+* FACEBOOK_APP_SECRET: See https://developers.facebook.com/docs/apps/register#app-secret
+    > export FACEBOOK_APP_SECRET="myfacebooksecret"
+* TWITTER_CONSUMER_KEY
+    > export TWITTER_CONSUMER_KEY="mytwitterconsumerkey"
+* TWITTER_CONSUMER_SECRET
+    > export TWITTER_CONSUMER_SECRET="mytwitterconsumersecret"
 
-* Project configuration
-    - Project/config/config.json
-        - LOCALES: Reference your locale files in the locale folder. Only the locales defined here will be use by the app.
-        - HTTP_LOG_CONFIG: See https://github.com/expressjs/morgan#predefined-formats
-        - AUTH.ENABLED: Enable or disable authentication.
-        - AUTH.LOCAL.ENABLED: Enable or disable local authentication.
-        - AUTH.FACEBOOK.ENABLED: Enable or disable Facebook authentication.
-        - AUTH.FACEBOOK.APP_ID: See https://developers.facebook.com/docs/apps/register#app-id
-        - AUTH.FACEBOOK.APP_SECRET: See https://developers.facebook.com/docs/apps/register#app-secret
+#### Project configuration
+* Project/config/config.json
+    - LOCALES: Reference your locale files in the locale folder. Only the locales defined here will be use by the app.
+    - HTTP_LOG_CONFIG: See https://github.com/expressjs/morgan#predefined-formats
+    - AUTH.ENABLED: Enable or disable authentication.
+    - AUTH.LOCAL.ENABLED: Enable or disable local authentication.
+    - AUTH.FACEBOOK.ENABLED: Enable or disable Facebook authentication.
+    - AUTH.FACEBOOK.PROFILE_FIELDS: Facebook profile fields wanted.
+    - AUTH.FACEBOOK.OPTIONS: Facebook api options.
+    - AUTH.TWITTER.ENABLED: Enable or disable Twitter authentication.
 
 ## Launching
 

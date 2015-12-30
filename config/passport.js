@@ -4,6 +4,7 @@ const CONFIG = require('./config.json');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
+const TwitterStrategy = require('passport-twitter').Strategy;
 const UserSchema = require('../app/models/user');
 const CryptUtils = require('../app/utils/crypt');
 
@@ -39,10 +40,10 @@ if (CONFIG.AUTH.LOCAL.ENABLED) {
 
 if (CONFIG.AUTH.FACEBOOK.ENABLED) {
     passport.use(new FacebookStrategy({
-            clientID: CONFIG.AUTH.FACEBOOK.APP_ID,
-            clientSecret: CONFIG.AUTH.FACEBOOK.APP_SECRET,
+            clientID: process.env.FACEBOOK_APP_ID,
+            clientSecret: process.env.FACEBOOK_APP_SECRET,
             callbackURL: '/auth/facebook/callback',
-            profileFields: ['id', 'first_name', 'last_name']
+            profileFields: CONFIG.AUTH.FACEBOOK.PROFILE_FIELDS
         }, (accessToken, refreshToken, profile, done) => {
 
             UserSchema.findOne({facebook_id: profile.id}, (err, user) => {
@@ -53,11 +54,47 @@ if (CONFIG.AUTH.FACEBOOK.ENABLED) {
                 if (user) {
                     return done(null, user);
                 }
-
+                
                 user = new UserSchema({
                     facebook_id: profile.id,
                     name: profile._json.first_name,
-                    last_name: profile._json.last_name
+                    last_name: profile._json.last_name,
+                    user_name: profile._json.email
+                });
+
+                console.log(user);
+
+                user.save(user, (err, user) => {
+                    if (err) {
+                        return done(err);
+                    }
+                    done(null, user);
+                });
+            });
+        }
+    ));
+}
+
+if (CONFIG.AUTH.TWITTER.ENABLED) {
+    passport.use(new TwitterStrategy({
+            consumerKey: process.env.TWITTER_CONSUMER_KEY,
+            consumerSecret: process.env.TWITTER_CONSUMER_SECRET
+        }, (accessToken, refreshToken, profile, done) => {
+
+            UserSchema.findOne({twitter_id: profile.id}, (err, user) => {
+                if (err) {
+                    return done(err);
+                }
+
+                if (user) {
+                    return done(null, user);
+                }
+
+                user = new UserSchema({
+                    twitter_id: profile.id,
+                    name: profile.displayName.split(' ')[0],
+                    last_name: profile.displayName.split(' ').slice(1).join(' '),
+                    user_name: profile.username
                 });
 
                 user.save(user, (err, user) => {

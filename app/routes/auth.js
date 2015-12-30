@@ -14,6 +14,10 @@ router
     .get('/auth/facebook', AuthController.facebook)
     .get('/auth/facebook/callback', AuthController.facebookCallback);
 
+router
+    .get('/auth/twitter', AuthController.twitter)
+    .get('/auth/twitter/callback', AuthController.twitterCallback);
+
 router.route('/auth/logout')
     .get(AuthController.logout);
 
