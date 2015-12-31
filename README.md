@@ -94,6 +94,10 @@ project
     - export TWITTER_CONSUMER_KEY="mytwitterconsumerkey"
 * TWITTER_CONSUMER_SECRET
     - export TWITTER_CONSUMER_SECRET="mytwitterconsumersecret"
+* GOOGLE_CLIENT_ID
+    - export GOOGLE_CLIENT_ID="mygoogleclientid"
+* GOOGLE_CLIENT_SECRET
+    - exports GOOGLE_CLIENT_SECRET="mygoogleclientsecret"
 * GITHUB_CLIENT_ID
     - export GITHUB_CLIENT_ID="mygithubclientid"
 * GITHUB_CLIENT_SECRET
@@ -107,8 +111,10 @@ project
     - AUTH.LOCAL.ENABLED: Enable or disable local authentication.
     - AUTH.FACEBOOK.ENABLED: Enable or disable Facebook authentication.
     - AUTH.FACEBOOK.PROFILE_FIELDS: Facebook profile fields wanted.
-    - AUTH.FACEBOOK.OPTIONS: Facebook api options.
+    - AUTH.FACEBOOK.OPTIONS: Facebook API options.
     - AUTH.TWITTER.ENABLED: Enable or disable Twitter authentication.
+    - AUTH.GOOGLE.ENABLED: Enable or disable Google authentication.
+    - AUTH.GOOGLE.OPTIONS: Google API options.
     - AUTH.GITHUB.ENABLED: Enable or disable GitHub authentication.
 
 ## Launching
