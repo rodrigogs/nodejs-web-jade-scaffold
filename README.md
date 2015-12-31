@@ -139,7 +139,6 @@ First start MongoDB if you don't have a running instance
 
 ## TODO
 
-* Passport strategies
 * User/Role management
 * More tests
 
