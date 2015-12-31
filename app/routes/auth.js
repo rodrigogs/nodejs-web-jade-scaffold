@@ -19,6 +19,10 @@ router
     .get('/auth/twitter/callback', AuthController.twitterCallback);
 
 router
+    .get('/auth/google', AuthController.google)
+    .get('/auth/google/callback', AuthController.googleCallback);
+
+router
     .get('/auth/github', AuthController.github)
     .get('/auth/github/callback', AuthController.githubCallback);
 

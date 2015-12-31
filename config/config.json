@@ -31,6 +31,15 @@
         "TWITTER": {
             "ENABLED": true
         },
+        "GOOGLE": {
+            "ENABLED": true,
+            "OPTIONS": {
+                "scope": [
+                    "https://www.googleapis.com/auth/userinfo.profile",
+                    "https://www.googleapis.com/auth/userinfo.email"
+                ]
+            }
+        },
         "GITHUB": {
             "ENABLED": true
         }

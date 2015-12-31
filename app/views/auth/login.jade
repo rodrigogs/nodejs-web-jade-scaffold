@@ -29,7 +29,7 @@ block content
                                 button.btn.btn-success.btn-lg.btn-block #{__('sign-in')}
                                 span.pull-right
                                     a(href='/register') #{__('register')}
-    
+
                             br
                             hr
 
@@ -38,12 +38,18 @@ block content
                                 a.btn.btn-block.btn-social.btn-facebook(href='/auth/facebook')
                                     span.fa.fa-facebook
                                     | #{__('facebook.sign-in')}
-                                    
+
                         if AUTH_CONFIG.TWITTER.ENABLED
                             .form-group
                                 a.btn.btn-block.btn-social.btn-twitter(href='/auth/twitter')
                                     span.fa.fa-twitter
                                     | #{__('twitter.sign-in')}
+
+                        if AUTH_CONFIG.GOOGLE.ENABLED
+                            .form-group
+                                a.btn.btn-block.btn-social.btn-google(href='/auth/google')
+                                    span.fa.fa-google
+                                    | #{__('google.sign-in')}
 
                         if AUTH_CONFIG.GITHUB.ENABLED
                             .form-group

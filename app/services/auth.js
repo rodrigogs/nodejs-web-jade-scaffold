@@ -17,6 +17,9 @@ module.exports = {
         if (type === 'twitter') {
             return passport.authenticate('twitter', args);
         }
+        if (type === 'google') {
+            return passport.authenticate('google', args);
+        }
         if (type === 'github') {
             return passport.authenticate('github', args);
         }

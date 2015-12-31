@@ -69,7 +69,24 @@ module.exports = {
             failureRedirect: '/auth/login'
         })(req, res, next);
     },
-    
+
+    /**
+     * Github action
+     */
+    google: (req, res, next) => {
+        AuthService.authenticate('google', CONFIG.AUTH.GOOGLE.OPTIONS)(req, res, next);
+    },
+
+    /**
+     * GithubCallback action
+     */
+    googleCallback: (req, res, next) => {
+        AuthService.authenticate('google', {
+            successRedirect: '/',
+            failureRedirect: '/auth/login'
+        })(req, res, next);
+    },
+
     /**
      * Github action
      */

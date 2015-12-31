@@ -28,6 +28,10 @@ const UserSchema = new Schema({
         type: String,
         index: { unique: true }
     },
+    google_id: {
+        type: String,
+        index: { unique: true }
+    },
     github_id: {
         type: String,
         index: { unique: true }
@@ -42,7 +46,7 @@ UserSchema.post('validate', doc => {
     if (doc.isModified('password')) {
         doc.password = CryptUtils.encrypt(doc.password);
     }
-    
+
     if (!doc._id) {
         doc.creation_date = Date.now();
     }
