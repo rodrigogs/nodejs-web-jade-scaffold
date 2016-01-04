@@ -26,6 +26,8 @@ block content
                         .form-group
                             input.form-control.input-lg(type='text' placeholder='#{__("user.last_name")}' name='last_name' required value='#{user.last_name || ""}')
                         .form-group
+                            input.form-control.input-lg(type='email' placeholder='#{__("user.email")}' name='email' required value='#{user.email || ""}')
+                        .form-group
                             input.form-control.input-lg(type='text' placeholder='#{__("user.user_name")}' name='user_name' required value='#{user.user_name || ""}')
                         .form-group
                             input.form-control.input-lg(type='password' placeholder='#{__("user.password")}' name='password' required value='#{user.password || ""}')

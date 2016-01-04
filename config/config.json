@@ -24,8 +24,8 @@
                     "public_profile",
                     "email"
                 ],
-                "authorizationURL": "https://www.facebook.com/v2.4/dialog/oauth",
-                "profileURL": "https://graph.facebook.com/v2.4/me"
+                "authorizationURL": "https://www.facebook.com/v2.5/dialog/oauth",
+                "profileURL": "https://graph.facebook.com/v2.5/me"
             }
         },
         "TWITTER": {

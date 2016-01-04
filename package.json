@@ -31,6 +31,7 @@
   "dependencies": {
     "body-parser": "^1.14.2",
     "cookie-parser": "^1.4.0",
+    "deepmerge": "^0.2.10",
     "express": "^4.13.3",
     "express-session": "^1.12.1",
     "flash": "^1.1.0",
@@ -48,6 +49,7 @@
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.3",
     "serve-favicon": "^2.3.0",
+    "validator": "^4.4.0",
     "web-crud": "0.0.2",
     "winston": "^2.1.1"
   },

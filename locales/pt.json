@@ -1,10 +1,10 @@
 {
     "title": "Node.js Web Jade Scaffold",
     "main.cover-title": "Node.js Web Jade Scaffold",
-    "main.cover-description": "Aplicação web implementando com Node.js, Express, Jade, Passport, MongoDB and Bootstrap",
+    "main.cover-description": "Aplicação web implementando Node.js, Express, Jade, Passport, MongoDB and Bootstrap",
     "landing-page": "Página Inicial",
-    "login": "Login",
-    "logout": "Logout",
+    "login": "Fazer Login",
+    "logout": "Sair",
     "sign-in": "Entrar",
     "facebook.sign-in": "Entrar com o Facebook",
     "twitter.sign-in": "Entrar com o Twitter",
@@ -16,8 +16,11 @@
     "user.name": "Nome",
     "user.user_name": "Nome de usuário",
     "user.last_name": "Sobrenome",
+    "user.email": "Email",
     "user.password": "Senha",
     "user.created": "Usuário criado",
     "user.exists": "Usuário já cadastrado",
-    "user.error-creating": "Erro criando usuário"
+    "user.invalidemail": "Email inválido",
+    "user.error-creating": "Erro criando usuário",
+    "passport.badrequest": "Credenciais não infomadas"
 }

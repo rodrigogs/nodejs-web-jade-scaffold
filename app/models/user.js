@@ -3,6 +3,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const CryptUtils = require('../utils/crypt');
+const validator = require('validator');
 
 const UserSchema = new Schema({
     name: {
@@ -11,6 +12,12 @@ const UserSchema = new Schema({
     },
     last_name: {
         type: String
+    },
+    email: {
+        type: String,
+        index: { unique: true },
+        required: true,
+        validate: [validator.isEmail, 'user.invalidemail']
     },
     user_name: {
         type: String,
@@ -22,19 +29,31 @@ const UserSchema = new Schema({
     },
     facebook_id: {
         type: String,
-        index: { unique: true }
+        index: {
+            unique: true,
+            sparse: true
+        }
     },
     twitter_id: {
         type: String,
-        index: { unique: true }
+        index: {
+            unique: true,
+            sparse: true
+        }
     },
     google_id: {
         type: String,
-        index: { unique: true }
+        index: {
+            unique: true,
+            sparse: true
+        }
     },
     github_id: {
         type: String,
-        index: { unique: true }
+        index: {
+            unique: true,
+            sparse: true
+        }
     },
     creation_date: {
         type: Date,

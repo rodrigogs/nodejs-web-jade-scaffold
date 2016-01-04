@@ -1,7 +1,14 @@
 'use strict';
 
 const CONFIG = require('../../config/config.json');
-const AuthService = require('../services/auth');
+const passport = require('passport');
+
+const OPTIONS = {
+    badRequestMessage: 'passport.badrequest', // 18n reference
+    successRedirect: '/',
+    failureRedirect: '/auth/login',
+    failureFlash: true
+};
 
 module.exports = {
 
@@ -15,94 +22,47 @@ module.exports = {
     /**
      * Login action
      */
-    login: (req, res, next) => {
-        AuthService.authenticate('local', null, (err, user) => {
-            if (err) {
-                return next(err);
-            }
-
-            if (!user) {
-                req.flash('danger', req.__('auth.failed'));
-                return res.redirect('/auth/login');
-            }
-
-            req.logIn(user, (err) => {
-                if (err) {
-                    return next(err);
-                }
-
-                return res.redirect('/');
-            });
-        })(req, res, next);
-    },
+    login: passport.authenticate('local', OPTIONS),
 
     /**
      * Facebook action
      */
-    facebook: (req, res, next) => {
-        AuthService.authenticate('facebook', CONFIG.AUTH.FACEBOOK.OPTIONS)(req, res, next);
-    },
+    facebook: passport.authenticate('facebook', CONFIG.AUTH.FACEBOOK.OPTIONS),
 
     /**
      * FacebookCallback action
      */
-    facebookCallback: (req, res, next) => {
-        AuthService.authenticate('facebook', {
-            successRedirect: '/',
-            failureRedirect: '/auth/login'
-        })(req, res, next);
-    },
+    facebookCallback: passport.authenticate('facebook', OPTIONS),
 
     /**
      * Twitter action
      */
-    twitter: (req, res, next) => {
-        AuthService.authenticate('twitter')(req, res, next);
-    },
+    twitter: passport.authenticate('twitter'),
 
     /**
      * TwitterCallback action
      */
-    twitterCallback: (req, res, next) => {
-        AuthService.authenticate('twitter', {
-            successRedirect: '/',
-            failureRedirect: '/auth/login'
-        })(req, res, next);
-    },
+    twitterCallback: passport.authenticate('twitter', OPTIONS),
 
     /**
      * Github action
      */
-    google: (req, res, next) => {
-        AuthService.authenticate('google', CONFIG.AUTH.GOOGLE.OPTIONS)(req, res, next);
-    },
+    google: passport.authenticate('google', CONFIG.AUTH.GOOGLE.OPTIONS),
 
     /**
      * GithubCallback action
      */
-    googleCallback: (req, res, next) => {
-        AuthService.authenticate('google', {
-            successRedirect: '/',
-            failureRedirect: '/auth/login'
-        })(req, res, next);
-    },
+    googleCallback: passport.authenticate('google', OPTIONS),
 
     /**
      * Github action
      */
-    github: (req, res, next) => {
-        AuthService.authenticate('github')(req, res, next);
-    },
+    github: passport.authenticate('github'),
 
     /**
      * GithubCallback action
      */
-    githubCallback: (req, res, next) => {
-        AuthService.authenticate('github', {
-            successRedirect: '/',
-            failureRedirect: '/auth/login'
-        })(req, res, next);
-    },
+    githubCallback: passport.authenticate('github', OPTIONS),
 
     /**
      * Logout action
