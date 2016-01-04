@@ -59,5 +59,6 @@ test.cb('test /logout url', t => {
 
 test.cb('test /logout url', t => {
     const url = `${baseUrl}/register`;
-    postMethod(t, url, {name: 'test', last_name: 'last name', user_name: 'username', password: '123'});
+    let now = new Date();
+    postMethod(t, url, {name: 'test', last_name: 'last name', user_name: 'test' + now.toString(), password: '123', email: now.getTime() + '@test.com'});
 });

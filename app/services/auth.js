@@ -1,12 +1,14 @@
 'use strict';
 
-const merge = require('deepmerge');
 const validator = require('validator');
 const UserSchema = require('../models/user');
 
+/**
+ * 
+ */
 const _getQuery = (info) => {
     const query = {$or: []};
-    if (info.user_name && info.password) {
+    if (info.user_name) {
         query.$or.push({
             user_name: info.user_name,
             password: info.password
@@ -21,10 +23,58 @@ const _getQuery = (info) => {
     return query;
 };
 
+/**
+ * 
+ */
+const _resolveLocal = (user, callback) => {
+    if (!user) {
+        return callback(null, false, {type: 'danger', message: 'auth.failed'});
+    }
+
+    return callback(null, user);
+};
+
+/**
+ * 
+ */
+const _updateUser = (user, info, callback) => {
+    user.facebook_id = info.facebook_id || user.facebook_id;
+    user.twitter_id = info.twitter_id || user.twitter_id;
+    user.google_id = info.google_id || user.google_id;
+    user.github_id = info.github_id || user.github_id;
+
+    user.save((err, user) => {
+        if (err) {
+            return callback(err);
+        }
+
+        return callback(null, user);
+    });
+};
+
+/**
+ * 
+ */
+const _createUser = (info, callback) => {
+    if (!info.user_name && info.email && validator.isEmail(info.email)) {
+        info.user_name = info.email.split('@')[0];
+    }
+
+    let user = new UserSchema(info);
+
+    user.save((err, user) => {
+        if (err) {
+            return callback(err);
+        }
+
+        callback(null, user);
+    });
+};
+
 module.exports = {
 
     /**
-     * Resolve User
+     * ResolveUser
      */
     resolveUser: (userInfo, callback) => {
         const isLocal = userInfo.isLocal;
@@ -36,40 +86,14 @@ module.exports = {
             }
 
             if (isLocal) {
-                if (!user) {
-                    return callback(null, false, {type: 'danger', message: 'auth.failed'});
-                }
-
-                return callback(null, user);
+                return _resolveLocal(user, callback);
             }
 
-            let comparator = merge(userInfo, user || {});
             if (user) {
-                if (JSON.stringify(user) !== JSON.stringify(comparator)) {
-                    comparator.save((err, user) => {
-                        if (err) {
-                            return callback(err);
-                        }
-
-                        return callback(null, user);
-                    });
-                } else {
-                    callback(null, user);
-                }
-            } else {
-                if (!comparator.user_name && comparator.email && validator.isEmail(comparator.email)) {
-                    comparator.user_name = comparator.email.split('@')[0];
-                }
-                user = new UserSchema(comparator);
-
-                user.save((err, user) => {
-                    if (err) {
-                        return callback(err);
-                    }
-
-                    callback(null, user);
-                });
+                return _updateUser(user, userInfo, callback);
             }
+
+            return _createUser();
         });
     }
 };
