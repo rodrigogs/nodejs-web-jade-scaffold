@@ -32,7 +32,8 @@ app.use(passport.session());
 // i18n config: https://github.com/mashpie/i18n-node#list-of-configuration-options
 i18n.configure({
     directory: path.join(__dirname, 'locales'),
-    locales: CONFIG.LOCALES
+    locales: CONFIG.LOCALES,
+    updateFiles: false
 });
 
 app.use(i18n.init);
