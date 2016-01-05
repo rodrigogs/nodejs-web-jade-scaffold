@@ -93,7 +93,7 @@ module.exports = {
                 return _updateUser(user, userInfo, callback);
             }
 
-            return _createUser();
+            return _createUser(userInfo, callback);
         });
     }
 };
