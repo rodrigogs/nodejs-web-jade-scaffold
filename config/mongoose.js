@@ -3,7 +3,7 @@
 const CONFIG = require('./config.json');
 const mongoose = require('mongoose');
 
-const CONN_STR = /*process.env.DATABASE_URL*/'mongodb://localhost/nodejs-web-jade-scaffold';
+const CONN_STR = process.env.DATABASE_URL;
 
 mongoose.connect(CONN_STR);
 
