@@ -1,4 +1,8 @@
 {
+    "DATABASE": {
+        "RECONNECT": true,
+        "RECONNECTION_INTERVAL": 5000
+    },
     "HTTP_LOG_CONFIG": "dev",
     "LOCALES": [
         "en",

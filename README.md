@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/rodrigogs/nodejs-web-jade-scaffold.svg?branch=master)](https://travis-ci.org/rodrigogs/nodejs-web-jade-scaffold)
 [![Code Climate](https://codeclimate.com/github/rodrigogs/nodejs-web-jade-scaffold/badges/gpa.svg)](https://codeclimate.com/github/rodrigogs/nodejs-web-jade-scaffold)
+[![Dependency Status](https://david-dm.org/rodrigogs/nodejs-web-jade-scaffold.svg)](https://david-dm.org/rodrigogs/nodejs-web-jade-scaffold)
+[![devDependency Status](https://david-dm.org/rodrigogs/nodejs-web-jade-scaffold/dev-status.svg)](https://david-dm.org/rodrigogs/nodejs-web-jade-scaffold#info=devDependencies)
 
 ## Structure
 ```
@@ -105,6 +107,8 @@ project
 
 #### Project configuration
 * Project/config/config.json
+    - DATABASE.RECONNECT: Enable or disable auto reconnection.
+    - DATABASE.RECONNECTION_INTERVAL: Interval for auto reconnection tries.
     - LOCALES: Reference your locale files in the locale folder. Only the locales defined here will be use by the app.
     - HTTP_LOG_CONFIG: See https://github.com/expressjs/morgan#predefined-formats
     - AUTH.ENABLED: Enable or disable authentication.
