@@ -1,5 +1,3 @@
-languages:
-  JavaScript: true
 engines:
   csslint:
     enabled: true
