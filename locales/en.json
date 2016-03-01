@@ -22,5 +22,6 @@
 	"user.exists": "User exists",
 	"user.invalidemail": "Invalid email",
 	"user.error-creating": "Error creating user",
-	"passport.badrequest": "Missing credentials"
+	"passport.badrequest": "Missing credentials",
+	"mongoose.unique-error": "Field %s is unique, value %s is already taken"
 }

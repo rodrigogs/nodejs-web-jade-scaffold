@@ -15,13 +15,19 @@ module.exports = {
      * Register action
      */
     register: (req, res, next) => {
-        RegisterService.register(req.body, (err, message, user) => {
+        RegisterService.register(req.body, (err, errors, user) => {
             if (err) {
                 return next(err);
             }
 
-            if (message) {
-                req.flash('warning', req.__(message));
+            if (errors) {
+                console.log(errors);
+                for (let error in errors) {
+                    error = errors[error];
+                    console.log(error.messageCode);
+                    console.log(req.__(error.messageCode, error.property, error.value));
+                    req.flash('warning', req.__(error.messageCode, error.property, error.value));
+                }
                 return res.render('register/index', {user: user});
             }
 

@@ -1,6 +1,7 @@
 'use strict';
 
 const UserSchema = require('../models/user');
+const ValidationUtils = require('../utils/validation');
 
 module.exports = {
     
@@ -14,12 +15,15 @@ module.exports = {
             }
 
             if (usr) {
-                return callback(null, 'user.exists');
+                return callback(null, [{ messageCode: 'user.exists' }]);
             }
 
             user = new UserSchema(user);
             user.save((err, user) => {
                 if (err) {
+                    if (ValidationUtils.hasValidationErrors(err)) {
+                        return callback(null, ValidationUtils.extractErrors(err));
+                    }
                     return callback(err);
                 }
 

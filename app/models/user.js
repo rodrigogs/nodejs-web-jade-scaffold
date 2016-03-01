@@ -1,9 +1,11 @@
 'use strict';
 
 const mongoose = require('mongoose');
+const uniqueValidator = require('mongoose-unique-validator');
 const Schema = mongoose.Schema;
 const CryptUtils = require('../utils/crypt');
 const validator = require('validator');
+const i18n = require('i18n');
 
 const UserSchema = new Schema({
     name: {
@@ -70,5 +72,7 @@ UserSchema.post('validate', doc => {
         doc.creation_date = Date.now();
     }
 });
+
+UserSchema.plugin(uniqueValidator, { message: 'mongoose.unique-error' });
 
 module.exports = mongoose.model('User', UserSchema);
