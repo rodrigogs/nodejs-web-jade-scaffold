@@ -1,39 +1,32 @@
-extends ../layouts/main
+extends ../layouts/default
 
-append stylesheets
+block stylesheets
 
-append javascripts
+block javascripts
 
 block content
-    .site-wrapper
-        .site-wrapper-inner
-            .cover-container
-                .masthead.clearfix
-                    .inner
-                        h3.masthead-brand #{__('register')}
-                        nav
-                            ul.nav.masthead-nav
-                                li.active
-                                    a(href='/auth/login') #{__('login')}
+    .masthead.clearfix
+        .inner
+            h3.masthead-brand #{__('register')}
+            nav
+                ul.nav.masthead-nav
+                    li.active
+                        a(href='/auth/login') #{__('login')}
 
-                .inner.cover
-                    include ../includes/messages
+    .inner.cover
+        include ../includes/messages
 
-                    - var user = user || {};
-                    form.form.col-md-12.center-block(method='post')
-                        .form-group
-                            input.form-control.input-lg(type='text' placeholder='#{__("user.name")}' name='name' required value='#{user.name || ""}')
-                        .form-group
-                            input.form-control.input-lg(type='text' placeholder='#{__("user.last_name")}' name='last_name' required value='#{user.last_name || ""}')
-                        .form-group
-                            input.form-control.input-lg(type='email' placeholder='#{__("user.email")}' name='email' required value='#{user.email || ""}')
-                        .form-group
-                            input.form-control.input-lg(type='text' placeholder='#{__("user.user_name")}' name='user_name' required value='#{user.user_name || ""}')
-                        .form-group
-                            input.form-control.input-lg(type='password' placeholder='#{__("user.password")}' name='password' required value='#{user.password || ""}')
-                        .form-group
-                            button.btn.btn-success.btn-lg.btn-block #{__('register')}
-
-                .mastfoot
-                    .inner
-                        include ../includes/footer
+        - user = user || {};
+        form.form.col-md-12.center-block(method='post')
+            .form-group
+                input.form-control.input-lg(type='text' placeholder='#{__("user.name")}' name='name' required value='#{user.name || ""}')
+            .form-group
+                input.form-control.input-lg(type='text' placeholder='#{__("user.last_name")}' name='last_name' required value='#{user.last_name || ""}')
+            .form-group
+                input.form-control.input-lg(type='email' placeholder='#{__("user.email")}' name='email' required value='#{user.email || ""}')
+            .form-group
+                input.form-control.input-lg(type='text' placeholder='#{__("user.user_name")}' name='user_name' required value='#{user.user_name || ""}')
+            .form-group
+                input.form-control.input-lg(type='password' placeholder='#{__("user.password")}' name='password' required value='#{user.password || ""}')
+            .form-group
+                button.btn.btn-success.btn-lg.btn-block #{__('register')}

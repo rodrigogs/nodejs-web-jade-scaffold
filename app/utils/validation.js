@@ -20,23 +20,22 @@ module.exports = {
     /**
      * 
      */
-    extractErrors: (error) => {
+    extractErrors: (error, i18nAlias) => {
         const errors = [];
 
         if (!error.errors) {
-            return {};
+            return [];
         }
 
         const validationErrors = filerObject(error.errors, err => {
             return err.name === 'ValidatorError';
         });
-        
-        console.log(validationErrors);
 
         for (let err in validationErrors) {
+            err = validationErrors[err];
             errors.push({
                 messageCode: err.message,
-                property: err.path,
+                property: i18nAlias ? `${i18nAlias}.${err.path}` : err.path,
                 value: err.value
             });
         }

@@ -22,7 +22,7 @@ module.exports = {
             user.save((err, user) => {
                 if (err) {
                     if (ValidationUtils.hasValidationErrors(err)) {
-                        return callback(null, ValidationUtils.extractErrors(err));
+                        return callback(null, ValidationUtils.extractErrors(err, 'user'));
                     }
                     return callback(err);
                 }

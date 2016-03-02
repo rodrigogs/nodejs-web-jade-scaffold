@@ -23,5 +23,5 @@
 	"user.invalidemail": "Email inválido",
 	"user.error-creating": "Erro criando usuário",
 	"passport.badrequest": "Credenciais não infomadas",
-	"mongoose.unique-error": "O campo %s é único, o valor %s está duplicado"
+	"mongoose.unique-error": "O campo %s é único, o valor %s já existe"
 }

@@ -1,23 +1,16 @@
-extends layouts/main
+extends layouts/default
 
 block content
-    .site-wrapper
-        .site-wrapper-inner
-            .cover-container
-                .masthead.clearfix
-                    .inner
-                        h3.masthead-brand #{__('error')}
-                        nav
-                            ul.nav.masthead-nav
-                                li.active
-                                    a(href='/') #{__('landing-page')}
+    .masthead.clearfix
+        .inner
+            h3.masthead-brand #{__('error')}
+            nav
+                ul.nav.masthead-nav
+                    li.active
+                        a(href='/') #{__('landing-page')}
 
-                .inner.cover
-                    include includes/messages
+    .inner.cover
+        include includes/messages
 
-                    p.lead #{error.message}
-                    p #{error.stack}
-
-                .mastfoot
-                    .inner
-                        include includes/footer
+        p.lead #{error.message}
+        p #{error.stack}

@@ -15,8 +15,15 @@ html(lang='en')
         link(rel='stylesheet' href='/static/vendor/font-awesome/css/font-awesome.min.css')
 
         block stylesheets
+        link(rel='stylesheet' href='/static/stylesheets/cover.css')
     body
-        block content
+        .site-wrapper
+            .site-wrapper-inner
+                .cover-container
+                    block content
+                    .mastfoot
+                        .inner
+                            include ../includes/footer
 
         script(src='/static/javascript/application.js')
         script(src='https://code.jquery.com/jquery-2.1.4.min.js')

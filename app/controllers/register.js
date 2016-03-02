@@ -21,19 +21,16 @@ module.exports = {
             }
 
             if (errors) {
-                console.log(errors);
                 for (let error in errors) {
                     error = errors[error];
-                    console.log(error.messageCode);
-                    console.log(req.__(error.messageCode, error.property, error.value));
-                    req.flash('warning', req.__(error.messageCode, error.property, error.value));
+                    req.flash('warning', req.__(error.messageCode, req.__(error.property), error.value));
                 }
-                return res.render('register/index', {user: user});
+                return res.render('register/index', {user: req.body});
             }
 
             if (!user) {
                 req.flash('warning', req.__('user.error-creating'));
-                return res.render('register/index', {user: user});
+                return res.render('register/index', {user: req.body});
             }
 
             req.flash('success', req.__('user.created'));
