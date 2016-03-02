@@ -22,7 +22,7 @@ module.exports = {
 
             if (errors) {
                 for (let error in errors) {
-                    if ((error = errors[error]).error.messageCode) {
+                    if ((error = errors[error]).messageCode) {
                         req.flash('warning', req.__(error.messageCode, req.__(error.property), error.value));
                     }
                 }
