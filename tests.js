@@ -1,3 +1,5 @@
+'use strict';
+
 import test from 'ava';
 import http from 'http';
 import request from 'request';

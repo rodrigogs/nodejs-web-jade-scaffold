@@ -5,7 +5,6 @@ const uniqueValidator = require('mongoose-unique-validator');
 const Schema = mongoose.Schema;
 const CryptUtils = require('../utils/crypt');
 const validator = require('validator');
-const i18n = require('i18n');
 
 const UserSchema = new Schema({
     name: {

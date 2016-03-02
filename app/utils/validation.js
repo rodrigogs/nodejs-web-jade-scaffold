@@ -32,12 +32,13 @@ module.exports = {
         });
 
         for (let err in validationErrors) {
-            err = validationErrors[err];
-            errors.push({
-                messageCode: err.message,
-                property: i18nAlias ? `${i18nAlias}.${err.path}` : err.path,
-                value: err.value
-            });
+            if ((err = validationErrors[err]).message) {
+                errors.push({
+                    messageCode: err.message,
+                    property: i18nAlias ? `${i18nAlias}.${err.path}` : err.path,
+                    value: err.value
+                });
+            }
         }
 
         return errors;

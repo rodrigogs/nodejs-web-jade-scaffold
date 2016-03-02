@@ -22,8 +22,9 @@ module.exports = {
 
             if (errors) {
                 for (let error in errors) {
-                    error = errors[error];
-                    req.flash('warning', req.__(error.messageCode, req.__(error.property), error.value));
+                    if ((error = errors[error]).error.messageCode) {
+                        req.flash('warning', req.__(error.messageCode, req.__(error.property), error.value));
+                    }
                 }
                 return res.render('register/index', {user: req.body});
             }
