@@ -13,51 +13,52 @@ project
 │   │   ├── api
 │   │   │   └── example.js
 │   │   └── example.js
-|   |
+│   │
 │   ├── models
 │   │   └── example.js
-|   |
+│   │
 │   ├── public
 │   │   ├── javascript
 │   │   │   └── example.js
 │   │   └── stylesheets
 │   │       └── example.css
-|   |
+│   │
 │   ├── routes
 │   │   ├── api
 │   │   │   └── example.js
 │   │   └── example.js
-|   |
+│   │
 │   ├── services
 │   │   └── example.js
-|   |
+│   │
 │   ├── utils
 │   │   └── example.js
-|   |
+│   │
 │   └── views
 │       ├── error.jade <-- Error template
 │       ├── includes
 │       │   ├── footer.jade <-- Footer template
-│       │   └── messages.jade <-- Flash messages template
+│       │   ├── messages.jade <-- Flash messages template
+│       │   └── twitter-cards.jade <-- Twitter meta data for whitelisting
 │       ├── layouts
-│       |   ├── default.jade <-- Default layout
-│       |   └── main.jade <-- Extended layout
+│       │   ├── default.jade <-- Default layout
+│       │   └── main.jade <-- Extended layout
 │       └── index.jade <-- Index template
-|
+│
 ├── bin
 │   └── www <-- HTTP server runner
-|
+│
 ├── config
 │   ├── config.json <-- General configurations file
 │   ├── mongoose.js <-- Mongoose connection configuration
 │   ├── passport.js <-- Passport routes and strategies
 │   └── routes.js <-- General routes
-|
+│
 ├── locales <-- Locale files should be referenced in config.json file
 │   ├── en.json
 │   ├── pt-br.json
 │   └── pt.json
-|
+│
 ├── main.js <-- Main app file
 ├── tests.js < -- Tests file
 ├── bower.json

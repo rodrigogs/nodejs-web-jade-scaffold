@@ -54,7 +54,9 @@ if (CONFIG.AUTH.FACEBOOK.ENABLED) {
 if (CONFIG.AUTH.TWITTER.ENABLED) {
     passport.use(new TwitterStrategy({
         consumerKey: process.env.TWITTER_CONSUMER_KEY,
-        consumerSecret: process.env.TWITTER_CONSUMER_SECRET
+        consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+        callbackURL: "http://nodejs-web-jade-scaffold-rodrigogs.c9users.io/auth/twitter/callback",
+        includeEmail: true
     }, (accessToken, refreshToken, profile, done) => {
         AuthService.resolveUser({
             twitter_id: profile.id,
