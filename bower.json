@@ -24,6 +24,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-social": "~4.11.0"
+    "bootstrap-social": "~4.11.0",
+    "jssor-slider": "^20.0.0"
   }
 }

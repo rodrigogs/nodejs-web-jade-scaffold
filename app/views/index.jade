@@ -3,6 +3,8 @@ extends layouts/default
 block stylesheets
 
 block javascripts
+    script(type='text/javascript').
+        startSlider('slider_container');
 
 block content
     .masthead.clearfix
@@ -23,4 +25,17 @@ block content
         h1.cover-heading #{__('main.cover-title')}
         p.lead #{__(message)}
         p.lead
-            img.img-responsive(src='https://nodejs.org/static/images/logo.svg')
+            #slider_container(style='position: relative; width: 400px; height: 300px; margin: 0 auto;')
+                div(u='slides' style='position: relative; width: 400px; height: 300px;')
+                    div
+                        img.img-responsive.centered-slide(src='https://nodejs.org/static/images/logos/nodejs-new-white-pantone.png')
+                    div
+                        img.img-responsive.centered-slide(src='http://jade-lang.com/style/jade-logo-header.svg')
+                    div
+                        img.img-responsive.centered-slide(src='https://i.cloudup.com/zfY6lL7eFa-3000x3000.png')
+                    div
+                        img.img-responsive.centered-slide(src='http://passportjs.org/images/logo.svg' style='width: auto; height: 300px; margin: 0 auto;')
+                    div
+                        img.img-responsive.centered-slide(src='https://upload.wikimedia.org/wikipedia/en/thumb/4/45/MongoDB-Logo.svg/527px-MongoDB-Logo.svg.png')
+                    div
+                        img.img-responsive.centered-slide(src='https://upload.wikimedia.org/wikipedia/commons/e/ea/Boostrap_logo.svg' style='width: auto; height: 300px; margin: 0 auto; vertical-align: middle;')
