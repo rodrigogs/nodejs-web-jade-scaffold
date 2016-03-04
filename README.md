@@ -41,8 +41,7 @@ project
 │       │   ├── messages.jade <-- Flash messages template
 │       │   └── twitter-cards.jade <-- Twitter meta data for whitelisting
 │       ├── layouts
-│       │   ├── default.jade <-- Default layout
-│       │   └── main.jade <-- Extended layout
+│       │   └── default.jade <-- Default layout
 │       └── index.jade <-- Index template
 │
 ├── bin
