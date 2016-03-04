@@ -4,7 +4,12 @@ block stylesheets
 
 block javascripts
     script(type='text/javascript').
-        startSlider('slider_container');
+        $('#out-of-the-box-demo').slippry({
+            transition: 'fade',
+            slippryWrapper: '<section id="tech-slider"/>',
+            captions: false,
+            pager: false
+        });
 
 block content
     .masthead.clearfix
@@ -19,23 +24,27 @@ block content
                             else
                                 a(href='/auth/login') #{__('login')}
 
-    .inner.cover
         include includes/messages
-        
+
         h1.cover-heading #{__('main.cover-title')}
         p.lead #{__(message)}
-        p.lead
-            #slider_container(style='position: relative; width: 400px; height: 300px; margin: 0 auto;')
-                div(u='slides' style='position: relative; width: 400px; height: 300px;')
-                    div
-                        img.img-responsive.centered-slide(src='https://nodejs.org/static/images/logos/nodejs-new-white-pantone.png')
-                    div
-                        img.img-responsive.centered-slide(src='http://jade-lang.com/style/jade-logo-header.svg')
-                    div
-                        img.img-responsive.centered-slide(src='https://i.cloudup.com/zfY6lL7eFa-3000x3000.png')
-                    div
-                        img.img-responsive.centered-slide(src='http://passportjs.org/images/logo.svg' style='width: auto; height: 300px; margin: 0 auto;')
-                    div
-                        img.img-responsive.centered-slide(src='https://upload.wikimedia.org/wikipedia/en/thumb/4/45/MongoDB-Logo.svg/527px-MongoDB-Logo.svg.png')
-                    div
-                        img.img-responsive.centered-slide(src='https://upload.wikimedia.org/wikipedia/commons/e/ea/Boostrap_logo.svg' style='width: auto; height: 300px; margin: 0 auto; vertical-align: middle;')
+
+        ul#out-of-the-box-demo
+            li
+                a(href='https://nodejs.org')
+                    img(src='https://nodejs.org/static/images/logos/nodejs-new-white-pantone.png')
+            li
+                a(href='http://jade-lang.com/')
+                    img(src='http://jade-lang.com/style/jade-logo-header.svg')
+            li
+                a(href='http://expressjs.com')
+                    img(src='https://i.cloudup.com/zfY6lL7eFa-3000x3000.png')
+            li
+                a(href='http://passportjs.org/')
+                    img(src='http://passportjs.org/images/logo.svg')
+            li
+                a(href='https://www.mongodb.org/')
+                    img(src='https://upload.wikimedia.org/wikipedia/en/thumb/4/45/MongoDB-Logo.svg/527px-MongoDB-Logo.svg.png')
+            li
+                a(href='http://getbootstrap.com/')
+                    img(src='https://upload.wikimedia.org/wikipedia/commons/e/ea/Boostrap_logo.svg')

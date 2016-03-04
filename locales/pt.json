@@ -1,7 +1,7 @@
 {
     "title": "Node.js Web Jade Scaffold",
     "main.cover-title": "Node.js Web Jade Scaffold",
-    "main.cover-description": "Aplicação web implementando Node.js, Express, Jade, Passport, MongoDB and Bootstrap",
+    "main.cover-description": "Aplicação web implementando Node.js, Express, Jade, Passport, MongoDB e Bootstrap",
     "landing-page": "Página Inicial",
     "login": "Fazer Login",
     "logout": "Sair",

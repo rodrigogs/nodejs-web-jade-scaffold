@@ -25,6 +25,6 @@
   ],
   "dependencies": {
     "bootstrap-social": "~4.11.0",
-    "jssor-slider": "^20.0.0"
+    "slippry": "^1.3.1"
   }
 }
