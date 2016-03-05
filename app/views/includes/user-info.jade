@@ -1,0 +1,6 @@
+h1.cover-heading #{user.info.name}
+if user.info.image
+    .lead
+        img(src='#{user.info.image}')
+if user.info.description
+    p.lead #{user.info.description}

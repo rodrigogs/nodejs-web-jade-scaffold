@@ -14,7 +14,7 @@ block javascripts
 block content
     .masthead.clearfix
         .inner
-            h3.masthead-brand #{__('landing-page')} #{user ? '| ' + user.name : ''}
+            h3.masthead-brand #{__('landing-page')}
             if AUTH_CONFIG.ENABLED
                 nav
                     ul.nav.masthead-nav
@@ -26,25 +26,7 @@ block content
 
         include includes/messages
 
-        h1.cover-heading #{__('main.cover-title')}
-        p.lead #{__(message)}
-
-        ul#out-of-the-box-demo
-            li
-                a(href='https://nodejs.org')
-                    img(src='https://nodejs.org/static/images/logos/nodejs-new-white-pantone.png')
-            li
-                a(href='http://jade-lang.com/')
-                    img(src='http://jade-lang.com/style/jade-logo-header.svg')
-            li
-                a(href='http://expressjs.com')
-                    img(src='https://i.cloudup.com/zfY6lL7eFa-3000x3000.png')
-            li
-                a(href='http://passportjs.org/')
-                    img(src='http://passportjs.org/images/logo.svg')
-            li
-                a(href='https://www.mongodb.org/')
-                    img(src='https://upload.wikimedia.org/wikipedia/en/thumb/4/45/MongoDB-Logo.svg/527px-MongoDB-Logo.svg.png')
-            li
-                a(href='http://getbootstrap.com/')
-                    img(src='https://upload.wikimedia.org/wikipedia/commons/e/ea/Boostrap_logo.svg')
+        if user
+            include includes/user-info
+        else
+            include includes/landing

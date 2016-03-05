@@ -45,12 +45,12 @@ module.exports = {
     twitterCallback: passport.authenticate('twitter', OPTIONS),
 
     /**
-     * Github action
+     * Google action
      */
     google: passport.authenticate('google', CONFIG.AUTH.GOOGLE.OPTIONS),
 
     /**
-     * GithubCallback action
+     * GoogleCallback action
      */
     googleCallback: passport.authenticate('google', OPTIONS),
 

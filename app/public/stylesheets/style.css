@@ -1,3 +1,7 @@
+.cover-heading {
+    margin-top: 50px;
+}
+
 #tech-slider li.sy-slide > a {
     height: 100%;
     width: auto;

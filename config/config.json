@@ -20,12 +20,16 @@
                 "id",
                 "first_name",
                 "last_name",
-                "email"
+                "email",
+                "picture",
+                "about",
+                "bio"
             ],
             "OPTIONS": {
                 "display": "touch",
                 "scope": [
                     "public_profile",
+                    "user_about_me",
                     "email"
                 ],
                 "authorizationURL": "https://www.facebook.com/v2.5/dialog/oauth",

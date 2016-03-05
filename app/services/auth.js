@@ -43,13 +43,7 @@ const _updateUser = (user, info, callback) => {
     user.google_id = info.google_id || user.google_id;
     user.github_id = info.github_id || user.github_id;
 
-    user.save((err, user) => {
-        if (err) {
-            return callback(err);
-        }
-
-        return callback(null, user);
-    });
+    user.save(callback);
 };
 
 /**
@@ -62,13 +56,7 @@ const _createUser = (info, callback) => {
 
     let user = new UserSchema(info);
 
-    user.save((err, user) => {
-        if (err) {
-            return callback(err);
-        }
-
-        callback(null, user);
-    });
+    user.save(callback);
 };
 
 module.exports = {
