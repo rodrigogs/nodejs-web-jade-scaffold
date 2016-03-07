@@ -26,6 +26,10 @@ router
     .get('/auth/github', AuthController.github)
     .get('/auth/github/callback', AuthController.githubCallback);
 
+router
+    .get('/auth/linkedin', AuthController.linkedin)
+    .get('/auth/linkedin/callback', AuthController.linkedinCallback);
+
 router.route('/auth/logout')
     .get(AuthController.logout);
 

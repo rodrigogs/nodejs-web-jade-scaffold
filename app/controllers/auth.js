@@ -65,6 +65,16 @@ module.exports = {
     githubCallback: passport.authenticate('github', OPTIONS),
 
     /**
+     * Linkedin action
+     */
+    linkedin: passport.authenticate('linkedin', { state: CONFIG.AUTH.LINKEDIN.OPTIONS.state }),
+
+    /**
+     * Linkedin action
+     */
+    linkedinCallback: passport.authenticate('linkedin', OPTIONS),
+
+    /**
      * Logout action
      */
     logout: (req, res, next) => {

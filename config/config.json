@@ -50,6 +50,16 @@
         },
         "GITHUB": {
             "ENABLED": true
+        },
+        "LINKEDIN": {
+            "ENABLED": true,
+            "OPTIONS": {
+                "state": "SOME STATE",
+                "scope": [
+                    "r_emailaddress",
+                    "r_basicprofile"
+                ]
+            }
         }
     }
 }

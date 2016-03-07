@@ -53,3 +53,8 @@ block content
                     a.btn.btn-block.btn-social.btn-github(href='/auth/github')
                         span.fa.fa-github
                         | #{__('github.sign-in')}
+            if AUTH_CONFIG.LINKEDIN.ENABLED
+                .form-group
+                    a.btn.btn-block.btn-social.btn-linkedin(href='/auth/linkedin')
+                        span.fa.fa-linkedin
+                        | #{__('linkedin.sign-in')}

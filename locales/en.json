@@ -10,6 +10,7 @@
 	"twitter.sign-in": "Sign In with Twitter",
 	"google.sign-in": "Sign In with Google",
 	"github.sign-in": "Sign In with GitHub",
+	"linkedin.sign-in": "Sign In with Linkedin",
 	"register": "Register",
 	"error": "Error",
 	"auth.failed": "Invalid username or password",

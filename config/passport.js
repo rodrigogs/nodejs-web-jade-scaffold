@@ -7,6 +7,7 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const GitHubStrategy = require('passport-github').Strategy;
+const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 const AuthService = require('../app/services/auth');
 const UserSchema = require('../app/models/user');
 const CryptUtils = require('../app/utils/crypt');
@@ -45,6 +46,13 @@ const _getThirdPartyInfo = (profile) => {
             description: ((profile._json.company || profile._json.location) || progile._json.blog) || profile._json.email,
             image: profile.photos[0].value
         };
+    }
+    if (profile.provider === 'linkedin') {
+        return {
+            name: profile.displayName,
+            description: profile._json.headline,
+            image: profile.photos[0].value
+        }
     }
 };
 
@@ -168,6 +176,31 @@ if (CONFIG.AUTH.GITHUB.ENABLED) {
             github_id: profile.id,
             name: profile.displayName.split(' ')[0],
             last_name: profile.displayName.split(' ').slice(1).join(' '),
+            email: profile.emails[0].value
+        }, (err, user, info) => {
+            if (err) {
+                return done(err);
+            }
+            if (user) {
+                user.info = _getThirdPartyInfo(profile);
+            }
+            done(null, user, info);
+        });
+    }));
+}
+
+if (CONFIG.AUTH.LINKEDIN.ENABLED) {
+    passport.use(new LinkedInStrategy({
+        clientID: process.env.LINKEDIN_KEY,
+        clientSecret: process.env.LINKEDIN_SECRET,
+        callbackURL: '/auth/linkedin/callback',
+        scope: CONFIG.AUTH.LINKEDIN.OPTIONS.scope
+    }, (accessToken, refreshToken, profile, done) => {
+        console.log(profile);
+        AuthService.resolveUser({
+            github_id: profile.id,
+            name: profile.name.givenName,
+            last_name: profile.name.familyName,
             email: profile.emails[0].value
         }, (err, user, info) => {
             if (err) {

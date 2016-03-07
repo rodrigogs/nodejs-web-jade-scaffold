@@ -19,6 +19,7 @@ const _getQuery = (info) => {
     if (info.twitter_id) query.$or.push({twitter_id: info.twitter_id});
     if (info.google_id) query.$or.push({google_id: info.google_id});
     if (info.github_id) query.$or.push({github_id: info.github_id});
+    if (info.linkedin_id) query.$or.push({linkedin_id: info.linkedin_id});
 
     return query;
 };
@@ -42,6 +43,7 @@ const _updateUser = (user, info, callback) => {
     user.twitter_id = info.twitter_id || user.twitter_id;
     user.google_id = info.google_id || user.google_id;
     user.github_id = info.github_id || user.github_id;
+    user.linkedin_id = info.linkedin_id || user.linkedin_id;
 
     user.save(callback);
 };
