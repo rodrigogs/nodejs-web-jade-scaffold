@@ -13,6 +13,7 @@ const methodOverride = require('method-override');
 const passport = require('passport');
 const i18n = require('i18n');
 const cookieParser = require('cookie-parser');
+const robots = require('express-robots');
 
 const app = express();
 
@@ -37,6 +38,9 @@ i18n.configure({
 });
 
 app.use(i18n.init);
+
+// Robots config: https://www.npmjs.com/package/express-robots
+app.use(robots({UserAgent: '*', Disallow: ''}))
 
 // Static resources
 app.use(favicon(path.join(__dirname, 'favicon.ico')));

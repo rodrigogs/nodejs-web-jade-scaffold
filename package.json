@@ -32,6 +32,7 @@
     "body-parser": "^1.15.0",
     "cookie-parser": "^1.4.1",
     "express": "^4.13.4",
+    "express-robots": "^0.1.5",
     "express-session": "^1.13.0",
     "filter-object": "^2.1.0",
     "flash": "^1.1.0",
