@@ -30,6 +30,10 @@ router
     .get('/auth/linkedin', AuthController.linkedin)
     .get('/auth/linkedin/callback', AuthController.linkedinCallback);
 
+router
+    .get('/auth/instagram', AuthController.instagram)
+    .get('/auth/instagram/callback', AuthController.instagramCallback);
+
 router.route('/auth/logout')
     .get(AuthController.logout);
 

@@ -39,6 +39,8 @@ project
 │       ├── includes
 │       │   ├── footer.jade <-- Footer template
 │       │   ├── messages.jade <-- Flash messages template
+│       │   ├── meta.jade <-- General meta content
+│       │   ├── facebook-meta.jade <-- Facebook meta data
 │       │   └── twitter-cards.jade <-- Twitter meta data for whitelisting
 │       ├── layouts
 │       │   └── default.jade <-- Default layout
@@ -104,6 +106,14 @@ project
     - export GITHUB_CLIENT_ID="mygithubclientid"
 * GITHUB_CLIENT_SECRET
     - exports GITHUB_CLIENT_SECRET="mygithubclientsecret"
+* LINKEDIN_KEY
+    - export LINKEDIN_KEY="mylinkedinkey"
+* LINKEDIN_KEY
+    - export LINKEDIN_SECRET="mylinkedinsecret"
+* INSTAGRAM_CLIENT_ID
+*   - export INSTAGRAM_CLIENT_ID="myinstamgramclientid"
+* INSTAGRAM_CLIENT_SECRET
+    - export INSTAGRAM_CLIENT_SECRET="myinstamgramclientsecret"
 
 #### Project configuration
 * Project/config/config.json
@@ -120,6 +130,9 @@ project
     - AUTH.GOOGLE.ENABLED: Enable or disable Google authentication.
     - AUTH.GOOGLE.OPTIONS: Google API options.
     - AUTH.GITHUB.ENABLED: Enable or disable GitHub authentication.
+    - AUTH.LINKEDIN.ENABLED: Enable or disable Linkedin authentication.
+    - AUTH.LINKEDIN.OPTIONS: Linkedin api options.
+    - AUTH.INSTAGRAM.ENABLED: Enable or disable Instagram authentication.
 
 ## Launching
 

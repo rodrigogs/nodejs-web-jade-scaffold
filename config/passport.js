@@ -8,6 +8,7 @@ const TwitterStrategy = require('passport-twitter').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const GitHubStrategy = require('passport-github').Strategy;
 const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
+const InstagramStrategy = require('passport-instagram').Strategy;
 const AuthService = require('../app/services/auth');
 const UserSchema = require('../app/models/user');
 const CryptUtils = require('../app/utils/crypt');
@@ -52,6 +53,13 @@ const _getThirdPartyInfo = (profile) => {
             name: profile.displayName,
             description: profile._json.headline,
             image: profile.photos[0].value
+        }
+    }
+    if (profile.provider === 'instagram') {
+        return {
+            name: profile.displayName,
+            description: profile._json.data.bio,
+            image: profile._json.data.profile_picture
         }
     }
 };
@@ -196,12 +204,34 @@ if (CONFIG.AUTH.LINKEDIN.ENABLED) {
         callbackURL: '/auth/linkedin/callback',
         scope: CONFIG.AUTH.LINKEDIN.OPTIONS.scope
     }, (accessToken, refreshToken, profile, done) => {
-        console.log(profile);
         AuthService.resolveUser({
-            github_id: profile.id,
+            linkedin_id: profile.id,
             name: profile.name.givenName,
             last_name: profile.name.familyName,
             email: profile.emails[0].value
+        }, (err, user, info) => {
+            if (err) {
+                return done(err);
+            }
+            if (user) {
+                user.info = _getThirdPartyInfo(profile);
+            }
+            done(null, user, info);
+        });
+    }));
+}
+
+if (CONFIG.AUTH.INSTAGRAM.ENABLED) {
+    passport.use(new InstagramStrategy({
+        clientID: process.env.INSTAGRAM_CLIENT_ID,
+        clientSecret: process.env.INSTAGRAM_CLIENT_SECRET,
+        callbackURL: '/auth/instagram/callback'
+    }, (accessToken, refreshToken, profile, done) => {
+        AuthService.resolveUser({
+            instagram_id: profile.id,
+            name: profile.displayName.split(' ')[0],
+            last_name: profile.displayName.split(' ').slice(1).join(' '),
+            email: `${profile.username}@instagram.com`
         }, (err, user, info) => {
             if (err) {
                 return done(err);

@@ -13,48 +13,62 @@ block content
                     li.active
                         a(href='/') #{__('landing-page')}
 
-    .inner.cover
-        include ../includes/messages
+        .inner.cover
+            include ../includes/messages
+    
+            form.form.col-md-12.center-block(method='post')
+                if AUTH_CONFIG.LOCAL.ENABLED
+                    .form-group
+                        input.form-control.input-lg(type='text' placeholder='#{__("user.user_name")}' name='username')
+                    .form-group
+                        input.form-control.input-lg(type='password' placeholder='#{__("user.password")}' name='password')
+                    .form-group
+                        button.btn.btn-success.btn-lg.btn-block #{__('sign-in')}
+                        span.pull-right
+                            a(href='/register') #{__('register')}
+        
+                    br
+                    hr
 
-        form.form.col-md-12.center-block(method='post')
-            if AUTH_CONFIG.LOCAL.ENABLED
-                .form-group
-                    input.form-control.input-lg(type='text' placeholder='#{__("user.user_name")}' name='username')
-                .form-group
-                    input.form-control.input-lg(type='password' placeholder='#{__("user.password")}' name='password')
-                .form-group
-                    button.btn.btn-success.btn-lg.btn-block #{__('sign-in')}
-                    span.pull-right
-                        a(href='/register') #{__('register')}
-
-                br
-                hr
-
-            if AUTH_CONFIG.FACEBOOK.ENABLED
-                .form-group
-                    a.btn.btn-block.btn-social.btn-facebook(href='/auth/facebook')
-                        span.fa.fa-facebook
-                        | #{__('facebook.sign-in')}
-
-            if AUTH_CONFIG.TWITTER.ENABLED
-                .form-group
-                    a.btn.btn-block.btn-social.btn-twitter(href='/auth/twitter')
-                        span.fa.fa-twitter
-                        | #{__('twitter.sign-in')}
-
-            if AUTH_CONFIG.GOOGLE.ENABLED
-                .form-group
-                    a.btn.btn-block.btn-social.btn-google(href='/auth/google')
-                        span.fa.fa-google
-                        | #{__('google.sign-in')}
-
-            if AUTH_CONFIG.GITHUB.ENABLED
-                .form-group
-                    a.btn.btn-block.btn-social.btn-github(href='/auth/github')
-                        span.fa.fa-github
-                        | #{__('github.sign-in')}
-            if AUTH_CONFIG.LINKEDIN.ENABLED
-                .form-group
-                    a.btn.btn-block.btn-social.btn-linkedin(href='/auth/linkedin')
-                        span.fa.fa-linkedin
-                        | #{__('linkedin.sign-in')}
+                .row
+                    if AUTH_CONFIG.FACEBOOK.ENABLED
+                        .col-xs-12.col-md-6
+                            .form-group
+                                a.btn.btn-block.btn-social.btn-facebook(href='/auth/facebook')
+                                    span.fa.fa-facebook
+                                    | #{__('facebook.sign-in')}
+            
+                    if AUTH_CONFIG.TWITTER.ENABLED
+                        .col-xs-12.col-md-6
+                            .form-group
+                                a.btn.btn-block.btn-social.btn-twitter(href='/auth/twitter')
+                                    span.fa.fa-twitter
+                                    | #{__('twitter.sign-in')}
+            
+                    if AUTH_CONFIG.GOOGLE.ENABLED
+                        .col-xs-12.col-md-6
+                            .form-group
+                                a.btn.btn-block.btn-social.btn-google(href='/auth/google')
+                                    span.fa.fa-google
+                                    | #{__('google.sign-in')}
+            
+                    if AUTH_CONFIG.GITHUB.ENABLED
+                        .col-xs-12.col-md-6
+                            .form-group
+                                a.btn.btn-block.btn-social.btn-github(href='/auth/github')
+                                    span.fa.fa-github
+                                    | #{__('github.sign-in')}
+            
+                    if AUTH_CONFIG.LINKEDIN.ENABLED
+                        .col-xs-12.col-md-6
+                            .form-group
+                                a.btn.btn-block.btn-social.btn-linkedin(href='/auth/linkedin')
+                                    span.fa.fa-linkedin
+                                    | #{__('linkedin.sign-in')}
+            
+                    if AUTH_CONFIG.INSTAGRAM.ENABLED
+                        .col-xs-12.col-md-6
+                            .form-group
+                                a.btn.btn-block.btn-social.btn-instagram(href='/auth/instagram')
+                                    span.fa.fa-instagram
+                                    | #{__('instagram.sign-in')}

@@ -70,9 +70,19 @@ module.exports = {
     linkedin: passport.authenticate('linkedin', { state: CONFIG.AUTH.LINKEDIN.OPTIONS.state }),
 
     /**
-     * Linkedin action
+     * LinkedinCallback action
      */
     linkedinCallback: passport.authenticate('linkedin', OPTIONS),
+
+    /**
+     * Instagram action
+     */
+    instagram: passport.authenticate('instagram'),
+
+    /**
+     * InstagramCallback action
+     */
+    instagramCallback: passport.authenticate('instagram', OPTIONS),
 
     /**
      * Logout action

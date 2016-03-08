@@ -11,6 +11,7 @@
     "google.sign-in": "Entrar com o Google",
     "github.sign-in": "Entrar com o GitHub",
     "linkedin.sign-in": "Entrar com o Linkedin",
+    "instagram.sign-in": "Entrar com o Instagram",
     "register": "Registrar",
     "error": "Erro",
     "auth.failed": "Nome de usuário ou senha inválido",

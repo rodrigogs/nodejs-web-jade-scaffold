@@ -63,6 +63,13 @@ const UserSchema = new Schema({
             sparse: true
         }
     },
+    instagram_id: {
+        type: String,
+        index: {
+            unique: true,
+            sparse: true
+        }
+    },
     creation_date: {
         type: Date,
         default: new Date()
