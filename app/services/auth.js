@@ -6,7 +6,7 @@ const UserSchema = require('../models/user');
 /**
  * 
  */
-const _getQuery = (info) => {
+const _getQuery = info => {
     const query = {$or: []};
     if (info.user_name) {
         query.$or.push({

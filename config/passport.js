@@ -13,7 +13,7 @@ const AuthService = require('../app/services/auth');
 const UserSchema = require('../app/models/user');
 const CryptUtils = require('../app/utils/crypt');
 
-const _getThirdPartyInfo = (profile) => {
+const _getThirdPartyInfo = profile => {
     if (profile.provider === 'facebook') {
         return {
             name: `${profile._json.first_name} ${profile._json.last_name}`,

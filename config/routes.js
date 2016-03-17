@@ -4,7 +4,7 @@ const CONFIG = require('./config.json');
 const router = require('express').Router();
 const logger = require('winston');
 
-module.exports = (app) => {
+module.exports = app => {
 
     router.use((req, res, next) => {
         // Remove express http headers

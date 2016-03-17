@@ -18,7 +18,9 @@ const UserSchema = new Schema({
         type: String,
         index: { unique: true },
         required: true,
-        validate: [validator.isEmail, 'user.invalidemail']
+        validate: [email => { // Since Validator version 5.0.0 validator.isEmail itself does not work. I had to wrap it with a function, so it works.
+            return validator.isEmail(email)
+        }, 'user.invalidemail']
     },
     user_name: {
         type: String,
