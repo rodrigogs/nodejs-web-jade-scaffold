@@ -111,7 +111,7 @@ project
 * LINKEDIN_KEY
     - export LINKEDIN_SECRET="mylinkedinsecret"
 * INSTAGRAM_CLIENT_ID
-*   - export INSTAGRAM_CLIENT_ID="myinstamgramclientid"
+    - export INSTAGRAM_CLIENT_ID="myinstamgramclientid"
 * INSTAGRAM_CLIENT_SECRET
     - export INSTAGRAM_CLIENT_SECRET="myinstamgramclientsecret"
 
