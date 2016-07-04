@@ -37,7 +37,7 @@
     "express-session": "^1.13.0",
     "filter-object": "^2.1.0",
     "flash": "^1.1.0",
-    "helmet": "^1.1.0",
+    "helmet": "^2.1.1",
     "i18n": "^0.8.0",
     "jade": "^1.11.0",
     "method-override": "^2.3.5",
@@ -59,7 +59,7 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
-    "ava": "^0.13.0",
+    "ava": "^0.15.2",
     "request": "^2.69.0"
   }
 }

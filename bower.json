@@ -24,7 +24,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-social": "~4.11.0",
+    "bootstrap-social": "~5.0.0",
     "slippry": "^1.3.1"
   }
 }
