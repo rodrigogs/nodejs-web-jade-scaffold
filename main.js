@@ -41,7 +41,7 @@ i18n.configure({
 app.use(i18n.init);
 
 // Robots config: https://www.npmjs.com/package/express-robots
-app.use(robots({UserAgent: '*', Disallow: ''}))
+app.use(robots({UserAgent: '*', Disallow: ''}));
 
 // Compression config: https://www.npmjs.com/package/compression
 app.use(compression());
