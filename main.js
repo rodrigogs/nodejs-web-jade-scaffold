@@ -1,6 +1,5 @@
 'use strict';
 
-const CONFIG = require('./config/config.json');
 const path = require('path');
 const express = require('express');
 const helmet = require('helmet');
@@ -15,6 +14,9 @@ const i18n = require('i18n');
 const cookieParser = require('cookie-parser');
 const robots = require('express-robots');
 const compression = require('compression')
+
+const CONFIG = require('./config/config.json');
+const routes = require('./config/routes')();
 
 const app = express();
 
@@ -55,7 +57,7 @@ app.set('views', path.join(__dirname, 'app/views'));
 app.set('view engine', 'jade');
 
 // Config
-require('./config/routes')(app);
+app.use(routes);
 require('./config/mongoose');
 require('./config/passport');
 

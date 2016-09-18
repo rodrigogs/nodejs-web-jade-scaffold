@@ -4,7 +4,7 @@ const CONFIG = require('./config.json');
 const router = require('express').Router();
 const logger = require('winston');
 
-module.exports = app => {
+module.exports = () => {
 
     router.use((req, res, next) => {
         // Remove express http headers
@@ -28,9 +28,9 @@ module.exports = app => {
 
     /*----------------- Routes API -----------------*/
 
-    const user = require('../app/routes/api/user');
+    // const user = require('../app/routes/api/user');
 
-    router.use('/api/user', user);
+    // router.use('/api/user', user);
 
     /*--------------- Error Handler ----------------*/
 
@@ -43,6 +43,8 @@ module.exports = app => {
     router.use((err, req, res, next) => {
         logger.error(err);
 
+        const isApiRequest = req.originalUrl.substring(0, 4) === '/api';
+
         /**
          * Remove Error's `stack` property. We don't want
          * users to see this at the production env
@@ -51,8 +53,16 @@ module.exports = app => {
             delete err.stack;
         }
 
-        res.status(err.statusCode || 500).render('error', {error: err});
+        res.status(err.statusCode || 500);
+
+        if (isApiRequest) {
+            res.send({error: err});
+        } else {
+            res.render('error', {error: err});
+        }
+
+        next();
     });
 
-    app.use(router);
+    return router;
 };
