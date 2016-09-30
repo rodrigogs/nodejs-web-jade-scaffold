@@ -60,8 +60,6 @@ module.exports = () => {
         } else {
             res.render('error', {error: err});
         }
-
-        next();
     });
 
     return router;
