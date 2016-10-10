@@ -1,6 +1,6 @@
 'use strict';
 
-const filerObject = require('filter-object');
+const filterObject = require('filter-object');
 
 module.exports = {
 
@@ -12,7 +12,7 @@ module.exports = {
             return false;
         }
 
-        return !!filerObject(error.errors, err => {
+        return !!filterObject(error.errors, err => {
             return err.name === 'ValidatorError';
         });
     },
